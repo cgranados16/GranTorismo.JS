@@ -1,13 +1,20 @@
 var express = require('express');
 var router = express.Router();
+var fetch = require('node-fetch');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('signUp', { title: 'Register', alert : null });
+  res.render('signUp', { title: 'Register', alert : res.locals.alert });
 });
 
-router.get('/badLogin', function(req, res, next) {
-  res.render('partial/alert', {  alert : {type: 'danger', message: 'error'} });
+router.all('/badLogin', function(req, res) {
+	req.session.alert = {
+        type: 'danger',
+        message: 'Invalid username or password.'
+    }
+ 	
+  	res.redirect('/signUp');
 });
 
 

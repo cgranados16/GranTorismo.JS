@@ -4,6 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var flash = require('connect-flash');
+const fetch = require('node-fetch');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -22,10 +25,26 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+  	saveUninitialized: true,
+}));
+app.use(flash());
+
+app.use(function(req, res, next){
+    // if there's a flash message in the session request, make it available in the response, then delete it
+    res.locals.alert = req.session.alert;
+    delete req.session.alert;
+    next();
+});
+
 
 app.use('/', index);
 app.use('/users', users);
 app.use('/SignUp', signUp);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
