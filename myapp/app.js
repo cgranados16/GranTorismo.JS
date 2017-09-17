@@ -11,6 +11,7 @@ const fetch = require('node-fetch');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var signUp = require('./routes/signUp');
+var cart = require('./routes/cart');
 
 var app = express();
 
@@ -32,19 +33,20 @@ app.use(session({
 }));
 app.use(flash());
 
+app.use('/', index);
+app.use('/users', users);
+app.use('/SignUp', signUp);
+app.use('/cart', cart);
+
 app.use(function(req, res, next){
-    // if there's a flash message in the session request, make it available in the response, then delete it
     res.locals.alert = req.session.alert;
     delete req.session.alert;
     next();
 });
 
-
-app.use('/', index);
-app.use('/users', users);
-app.use('/SignUp', signUp);
-
-
+app.use(function(req, res, next){
+    res.locals.caca = req.session.caca;
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
