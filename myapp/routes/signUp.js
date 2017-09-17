@@ -1,13 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var _ = require('lodash');
 var fetch = require('node-fetch');
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	if (req.cookies.userId){
-		res.redirect('/');
-	} 
 	res.render('signUp', { title: 'Register', alert : res.locals.alert});	
 });
 

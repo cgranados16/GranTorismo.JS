@@ -44,9 +44,6 @@ app.use(function(req, res, next){
     next();
 });
 
-app.use(function(req, res, next){
-    res.locals.caca = req.session.caca;
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
