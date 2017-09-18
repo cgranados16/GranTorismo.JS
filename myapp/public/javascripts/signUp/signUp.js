@@ -1,12 +1,12 @@
-function login(){
+function login(form){
   $.ajax({
             type: "POST",
             url: "http://localhost:51336/api/Login/Authenticate",
-            data: $("#loginSubmit").serialize(),
+            data: $(form).serialize(),
             success: function (res) {
                 console.log(res.Success);
                 if (res.Success){
-                    Cookies.set('userId',res.IdCard);
+                    Cookies.set('user', res.IdCard);
                     window.location.replace('/');
                 }else{
                    window.location.replace('/signUp/badLogin');

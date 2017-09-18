@@ -62,7 +62,7 @@ _________________________________________________________ -->
                 <ul class="nav navbar-nav navbar-right">
                    
                     <li class=" use-yamm yamm-fw">
-                        <a href="cart" class="toggle" >Tienda</a>
+                        <a href="store" class="toggle" >Tienda</a>
                     </li>
                     <!-- ========== FULL WIDTH MEGAMENU ================== -->
                     <li class="dropdown use-yamm yamm-fw">
@@ -262,12 +262,12 @@ _________________________________________________________ -->
                         <h4 class="modal-title" id="Login">Customer login</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="javascript:;" onsubmit="login()" method="post">
+                        <form action="javascript:;" onsubmit="login(this)" method="post" id ="loginModalSubmit">
                             <div class="form-group">
-                                <input type="text" name="Username" class="form-control" id="loginUsername" placeholder="username">
+                                <input type="text" name="Username" class="form-control" placeholder="username">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="Password" class="form-control" id="loginUsername" placeholder="password">
+                                <input type="text" name="Password" class="form-control" placeholder="password">
                             </div>
 
                             <p class="text-center">
