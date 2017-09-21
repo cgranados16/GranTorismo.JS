@@ -20,18 +20,20 @@ function login(form){
   });
 }
 
-function signOut(){
-    Cookies.remove('userId');
-}
-
 function signUp(){
+  var IdCard = $("#idCard-login").val();
   $.ajax({
         type: "POST",
         url: "http://localhost:51336/api/Register/User/Client",
-        data: $("#registerSubmit").serialize(),
+        data:  $("#registerSubmit").serialize(),
         success: function (res) {
-            console.log(res);
-            alert(res.Response);
+            if (res.Response == 'Success'){
+                Cookies.set('user', IdCard);
+                window.location.replace('/');
+            }else{
+                window.location.replace('/signUp/badLogin');
+            }
+            
         },
         error: function (xhr) {
             console.log(xhr);
