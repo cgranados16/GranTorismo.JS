@@ -44,6 +44,17 @@
 
                         <form action="javascript:;" onsubmit="signUp()" method="post" id="registerSubmit">
                             <div class="form-group">
+                                <label for="email-login">Registrarse como: </label> <br />
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-primary active">
+                                        <input type="radio" name="type" id="client" value='Client' autocomplete="off" checked> Cliente
+                                    </label>
+                                    <label class="btn btn-primary">
+                                        <input type="radio"  name="type" id="owner" value='Owner' autocomplete="off"> Dueño de negocio
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label for="name-login">Id Card</label>
                                 <input type="text" name="User[IdCard]" class="form-control" id="idCard-login">
                             </div>
@@ -71,7 +82,7 @@
                                 <label for="email-login">Second Last Name</label>
                                 <input type="text" name="User[SecondFirstName]" class="form-control" id="first-name-login">
                             </div>
-                             <div class="form-group">
+                             <div class="form-group" id="hide-account">
                                 <label for="email-login">Account Number</label>
                                 <input type="text" name="AccountNumber" class="form-control" id="Account-login">
                             </div>
