@@ -15,20 +15,20 @@ function getUserDetails(id){
 router.get(/^(.*)$/, function(req, res, next){
   if (req.cookies.user){
     var cookie = JSON.parse(req.cookies.user);
-	getUserDetails(cookie['IdCard']).then(function(result) {
-         _parameters = {user : result};
+	  getUserDetails(cookie['IdCard']).then(function(result) {
+       _parameters = {user : result};
+       caca = _.extend(_parameters, {role : cookie['Role']});
   		 parameters = _.extend(res.locals, _parameters);
   		 next();
     });
   }else{
-  	parameters = _.extend(res.locals, {user : '' });
-	next();
+  	parameters = _.extend(res.locals, {user : '', role :''});
+	  next();
   }
 });
 
 function OwnerAuth(req,res,next){
   var cookie = JSON.parse(req.cookies.user);
-  console.log(cookie['Role']);
   if (cookie['Role'] != 'Owner'){
     res.redirect('/');
   }
@@ -45,14 +45,12 @@ function IsLogged(req,res,next){
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if (req.cookies.user){
-    var cookie = JSON.parse(req.cookies.user);
-    if (cookie['Role'] != 'Owner'){
-      res.render('index-Owner', { title: 'Express'});
-    }else if (cookie['Role'] != 'Admin'){
-      res.render('index-Admin', { title: 'Express'});
+    var cookie = JSON.parse(req.cookies.user) || '';    
+    if (cookie['Role'] == 'Admin'){
+      return res.render('index-Admin', { title: 'Express'});
     }
   }
-  res.render('index', { title: 'Express'});
+  return res.render('index', { title: 'Express'});
 });
 
 router.get('/caca',IsLogged, OwnerAuth, function(req, res, next) {

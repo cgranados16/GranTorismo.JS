@@ -61,7 +61,11 @@ _________________________________________________________ -->
             <div class="navbar-collapse collapse" id="navigation">
 
                 <ul class="nav navbar-nav navbar-right">
-                   
+                   <% if (role && role == 'Owner') { %>   
+                   <li class=" use-yamm yamm-fw">
+                        <a href="myStore" class="toggle" >Mi Tienda</a>
+                    </li>
+                    <% }%>   
                     <li class=" use-yamm yamm-fw">
                         <a href="store" class="toggle" >Tienda</a>
                     </li>
