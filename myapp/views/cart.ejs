@@ -13,13 +13,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-                        <h1>Category with left sidebar</h1>
+                        <h1>Shopping Cart</h1>
                     </div>
                     <div class="col-md-5">
                         <ul class="breadcrumb">
                             <li><a href="index.html">Home</a>
                             </li>
-                            <li>Category with left sidebar</li>
+                            <li>Shopping Cart</li>
                         </ul>
 
                     </div>
@@ -32,341 +32,61 @@
 
                 <div class="row">
 
+                  <!-- Products-->
+                  <div class="col-sm-8">
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>  </th>
+                            <th> Details </th>
+                            <th> Price </th>
+                          </tr>
+                        </thead>
+                        <tbody>
 
-                    <!-- *** LEFT COLUMN ***
-            _________________________________________________________ -->
+                          <tr>
+                            <th style="width: 10%;"> <img class="img-thumbnail image1" src="images/product1.jpg" alt=""  /> </th>
+                            <th>
+                              <h4>Nombre del producto1</h4>
+                              <p>
+                                Lorem ipsum dolor sit amet...
+                              </p>
+                            </th>
+                            <th> $420.00 </th>
+                          </tr>
 
-                    <div class="col-sm-3">
-
-                        <!-- *** MENUS AND FILTERS ***
- _________________________________________________________ -->
-                        <div class="panel panel-default sidebar-menu">
-
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Categories</h3>
-                            </div>
-
-                            <div class="panel-body">
-                                <ul class="nav nav-pills nav-stacked category-menu">
-                                    <li>
-                                        <ul>
-                                            <% categories.forEach(function(category) { %>
-                                            <li><a href="shop-category.html"> <%= category.Name %></a></li>
-                                        <% }); %>
-                                        </ul>
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default sidebar-menu">
-
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Brands</h3>
-                                <a class="btn btn-xs btn-danger pull-right" href="#"><i class="fa fa-times-circle"></i> <span class="hidden-sm">Clear</span></a>
-                            </div>
-
-                            <div class="panel-body">
-
-                                <form>
-                                    <div class="form-group">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox">Armani (10)
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox">Versace (12)
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox">Carlo Bruni (15)
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox">Jack Honey (14)
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <button class="btn btn-default btn-sm btn-template-main"><i class="fa fa-pencil"></i> Apply</button>
-
-                                </form>
-
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default sidebar-menu">
-
-                            <div class="panel-heading">
-                                <h3 class="panel-title clearfix">Colours</h3>
-                                <a class="btn btn-xs btn-danger pull-right" href="#"><i class="fa fa-times-circle"></i> <span class="hidden-sm">Clear</span></a>
-                            </div>
-
-                            <div class="panel-body">
-
-                                <form>
-                                    <div class="form-group">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> <span class="colour white"></span> White (14)
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> <span class="colour blue"></span> Blue (10)
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> <span class="colour green"></span> Green (20)
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> <span class="colour yellow"></span> Yellow (13)
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> <span class="colour red"></span> Red (10)
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <button class="btn btn-default btn-sm btn-template-main"><i class="fa fa-pencil"></i> Apply</button>
-
-                                </form>
-
-                            </div>
-                        </div>
-
-                        <!-- *** MENUS AND FILTERS END *** -->
-
-                        <div class="banner">
-                            <a href="shop-category.html">
-                                <img src="images/banner.jpg" alt="sales 2014" class="img-responsive">
-                            </a>
-                        </div>
-                        <!-- /.banner -->
-
+                          <tr>
+                            <th style="width: 10%;"> <img class="img-thumbnail image1" src="images/product2.jpg" alt=""  /> </th>
+                            <th>
+                              <h4>Nombre del producto2</h4>
+                              <p>
+                                Lorem ipsum dolor sit amet...
+                              </p>
+                            </th>
+                            <th> $420.00 </th>
+                          </tr>
+                          <tr>
+                            <th></th>
+                            <th></th>
+                            <th><b>Subtotal (2 Items): $840.00</b></th>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
-                    <!-- /.col-md-3 -->
-
-                    <!-- *** LEFT COLUMN END *** -->
-
-                    <!-- *** RIGHT COLUMN ***
-            _________________________________________________________ -->
-
-                    <div class="col-sm-9">
-
-                        <p class="text-muted lead">In our Ladies department we offer wide selection of the best products we have found and carefully selected worldwide. Pellentesque habitant morbi tristique senectus et netuss.</p>
-
-                        <div class="row products">
-
-                            <div class="col-md-4 col-sm-6">
-                                <div class="product">
-                                    <div class="image">
-                                        <a href="shop-detail.html">
-                                            <img src="images/product1.jpg" alt="" class="img-responsive image1">
-                                        </a>
-                                    </div>
-                                    <!-- /.image -->
-                                    <div class="text">
-                                        <h3><a href="shop-detail.html">Fur coat with very but very very long name</a></h3>
-                                        <p class="price">$143.00</p>
-                                        <p class="buttons">
-                                            <a href="shop-detail.html" class="btn btn-default">View detail</a>
-                                            <a href="shop-basket.html" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                        </p>
-                                    </div>
-                                    <!-- /.text -->
-                                </div>
-                                <!-- /.product -->
-                            </div>
-
-                            <div class="col-md-4 col-sm-6">
-                                <div class="product">
-                                    <div class="image">
-                                        <a href="shop-detail.html">
-                                            <img src="images/product2.jpg" alt="" class="img-responsive image1">
-                                        </a>
-                                    </div>
-                                    <!-- /.image -->
-                                    <div class="text">
-                                        <h3><a href="shop-detail.html">White Blouse Armani</a></h3>
-                                        <p class="price"><del>$280</del> $143.00</p>
-                                        <p class="buttons">
-                                            <a href="shop-detail.html" class="btn btn-default">View detail</a>
-                                            <a href="shop-basket.html" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                        </p>
-                                    </div>
-                                    <!-- /.text -->
-
-                                    <div class="ribbon sale">
-                                        <div class="theribbon">SALE</div>
-                                        <div class="ribbon-background"></div>
-                                    </div>
-                                    <!-- /.ribbon -->
-
-                                    <div class="ribbon new">
-                                        <div class="theribbon">NEW</div>
-                                        <div class="ribbon-background"></div>
-                                    </div>
-                                    <!-- /.ribbon -->
-                                </div>
-                                <!-- /.product -->
-                            </div>
-
-                            <div class="col-md-4 col-sm-6">
-                                <div class="product">
-                                    <div class="image">
-                                        <a href="shop-detail.html">
-                                            <img src="images/product3.jpg" alt="" class="img-responsive image1">
-                                        </a>
-                                    </div>
-                                    <!-- /.image -->
-                                    <div class="text">
-                                        <h3><a href="shop-detail.html">Black Blouse Versace</a></h3>
-                                        <p class="price">$143.00</p>
-                                        <p class="buttons">
-                                            <a href="shop-detail.html" class="btn btn-default">View detail</a>
-                                            <a href="shop-basket.html" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                        </p>
-
-                                    </div>
-                                    <!-- /.text -->
-                                </div>
-                                <!-- /.product -->
-                            </div>
-
-                            <div class="col-md-4 col-sm-6">
-                                <div class="product">
-                                    <div class="image">
-                                        <a href="shop-detail.html">
-                                            <img src="images/product3.jpg" alt="" class="img-responsive image1">
-                                        </a>
-                                    </div>
-                                    <!-- /.image -->
-                                    <div class="text">
-                                        <h3><a href="shop-detail.html">Black Blouse Versace</a></h3>
-                                        <p class="price">$143.00</p>
-                                        <p class="buttons">
-                                            <a href="shop-detail.html" class="btn btn-default">View detail</a>
-                                            <a href="shop-basket.html" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                        </p>
-
-                                    </div>
-                                    <!-- /.text -->
-                                </div>
-                                <!-- /.product -->
-                            </div>
-
-                            <div class="col-md-4 col-sm-6">
-                                <div class="product">
-                                    <div class="image">
-                                        <a href="shop-detail.html">
-                                            <img src="images/product2.jpg" alt="" class="img-responsive image1">
-                                        </a>
-                                    </div>
-                                    <!-- /.image -->
-                                    <div class="text">
-                                        <h3><a href="shop-detail.html">White Blouse Versace</a></h3>
-                                        <p class="price">$143.00</p>
-                                        <p class="buttons">
-                                            <a href="shop-detail.html" class="btn btn-default">View detail</a>
-                                            <a href="shop-basket.html" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                        </p>
-
-                                    </div>
-                                    <!-- /.text -->
-
-                                    <div class="ribbon new">
-                                        <div class="theribbon">NEW</div>
-                                        <div class="ribbon-background"></div>
-                                    </div>
-                                    <!-- /.ribbon -->
-                                </div>
-                                <!-- /.product -->
-                            </div>
-
-                            <div class="col-md-4 col-sm-6">
-                                <div class="product">
-                                    <div class="image">
-                                        <a href="shop-detail.html">
-                                            <img src="images/product1.jpg" alt="" class="img-responsive image1">
-                                        </a>
-                                    </div>
-                                    <!-- /.image -->
-                                    <div class="text">
-                                        <h3><a href="shop-detail.html">Fur coat</a></h3>
-                                        <p class="price">$143.00</p>
-                                        <p class="buttons">
-                                            <a href="shop-detail.html" class="btn btn-default">View detail</a>
-                                            <a href="shop-basket.html" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                        </p>
-
-                                    </div>
-                                    <!-- /.text -->
-                                </div>
-                                <!-- /.product -->
-                            </div>
-                            <!-- /.col-md-4 -->
-                        </div>
-                        <!-- /.products -->
-
-                        <div class="row">
-
-                            <div class="col-md-12 banner">
-                                <a href="#">
-                                    <img src="images/banner2.jpg" alt="" class="img-responsive">
-                                </a>
-                            </div>
-
-                        </div>
-
-
-                        <div class="pages">
-
-                            <p class="loadMore">
-                                <a href="#" class="btn btn-template-main"><i class="fa fa-chevron-down"></i> Load more</a>
-                            </p>
-
-                            <ul class="pagination">
-                                <li><a href="#">&laquo;</a>
-                                </li>
-                                <li class="active"><a href="#">1</a>
-                                </li>
-                                <li><a href="#">2</a>
-                                </li>
-                                <li><a href="#">3</a>
-                                </li>
-                                <li><a href="#">4</a>
-                                </li>
-                                <li><a href="#">5</a>
-                                </li>
-                                <li><a href="#">&raquo;</a>
-                                </li>
-                            </ul>
-                        </div>
-
-
-                    </div>
-                    <!-- /.col-md-9 -->
-
-                    <!-- *** RIGHT COLUMN END *** -->
-
+                  </div>
+                  <!-- END Products -->
+                  <!-- Detalles -->
+                  <div class="col-md-4">
+                    <b>Subtotal: $840.00</b>
+                    <button class="btn btn-warning btn-block"> Proceed to checkout </button>
+                  </div>
+                  <!-- END Detalles -->
                 </div>
-
             </div>
             <!-- /.container -->
         </div>
         <!-- /#content -->
-
 
     <footer>
         <%- include('partials/footer'); -%>
