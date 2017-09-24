@@ -12,7 +12,6 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var signUp = require('./routes/signUp');
 var store = require('./routes/store');
-var myStore = require('./routes/myStore');
 
 var app = express();
 
@@ -46,7 +45,6 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/SignUp', signUp);
 app.use('/store', store);
-app.use('/myStore', myStore);
 
 // error handler
 app.use(function(err, req, res, next) {

@@ -50,9 +50,10 @@
                                 <ul class="nav nav-pills nav-stacked category-menu">
                                     <li>
                                         <ul>
+                                            <% if (Array.isArray(categories)){%>
                                             <% categories.forEach(function(category) { %>
                                             <li><a href="#"> <%= category.Name %></a></li>
-                                        <% }); %>
+                                            <% }); }%>
                                         </ul>
                                     </li>
                                 </ul>
