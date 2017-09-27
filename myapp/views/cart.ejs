@@ -29,9 +29,7 @@
 
         <div id="content">
             <div class="container">
-
                 <div class="row">
-
                   <!-- Products-->
                   <div class="col-sm-8">
                     <div class="table-responsive">
@@ -44,28 +42,23 @@
                           </tr>
                         </thead>
                         <tbody>
+                          <!--Product 1-->
+                          <% cartContent.forEach(function(item) { %>
 
-                          <tr>
-                            <th style="width: 10%;"> <img class="img-thumbnail image1" src="images/product1.jpg" alt=""  /> </th>
-                            <th>
-                              <h4>Nombre del producto1</h4>
-                              <p>
-                                Lorem ipsum dolor sit amet...
-                              </p>
-                            </th>
-                            <th> $420.00 </th>
-                          </tr>
+                            <tr>
+                              <th style="width: 10%;"> <img class="img-thumbnail image1" src="images/product1.jpg" alt=""  /> </th>
+                              <th>
+                                <h4> product <%=item.productId%> </h4>
+                                <p>
+                                  Lorem ipsum dolor sit amet...
+                                </p>
+                              </th>
+                              <th> $420.00 </th>
+                            </tr>
 
-                          <tr>
-                            <th style="width: 10%;"> <img class="img-thumbnail image1" src="images/product2.jpg" alt=""  /> </th>
-                            <th>
-                              <h4>Nombre del producto2</h4>
-                              <p>
-                                Lorem ipsum dolor sit amet...
-                              </p>
-                            </th>
-                            <th> $420.00 </th>
-                          </tr>
+                          <% }); %>
+
+                          <!-- Total -->
                           <tr>
                             <th></th>
                             <th></th>
