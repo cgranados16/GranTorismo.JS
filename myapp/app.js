@@ -12,6 +12,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var signUp = require('./routes/signUp');
 var store = require('./routes/store');
+var myStore = require('./routes/myStore');
 var cart = require('./routes/cart');
 
 var app = express();
@@ -46,6 +47,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/SignUp', signUp);
 app.use('/store', store);
+app.use('/myStore', myStore);
 app.use('/cart', cart);
 
 // error handler
