@@ -37,12 +37,12 @@ function signUp(){
         data:  $("#registerSubmit").serialize(),
         success: function (res) {
             if (res.Response == 'Success'){
-                Cookies.set('user',  {IdCard : res.IdCard, Role : type });
+                //Cookies.set('user',  {IdCard : res.IdCard, Role : type });
                 window.location.replace('/');
             }else{
                 window.location.replace('/signUp/badLogin');
             }
-            
+
         },
         error: function (xhr) {
             console.log(xhr);
@@ -50,4 +50,3 @@ function signUp(){
         }
   });
 }
-
