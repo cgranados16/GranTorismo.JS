@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <%- include('partials/head'); -%>
+  <link rel="stylesheet" href="/javascripts/select2/css/select2.css">
 </head>
 <body class="hold-transition skin-green sidebar-mini">
   <div class="wrapper">
@@ -28,7 +29,7 @@
 
      <div class="box box-solid box-default">
         <div class="box-header with-border">
-            <h3 class="box-title">Register a new Local</h3>
+            <h3 class="box-title">Registrar nuevo Establecimiento</h3>
             <div class="box-tools pull-right">
             </div>
         </div>
@@ -38,23 +39,37 @@
                     <div class="col-md-5">
                         <div class="box box-solid box-primary">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Information</h3>
+                                <h3 class="box-title">Información</h3>
                                 <div class="box-tools pull-right">
                                 </div>
                             </div>
                             <div class="box-body row">
                                 <div class="form-group col-md-12 row">
                                     <div class="col-md-3">
-                                      Nombre del lugar
+                                      Nombre
                                     </div>
                                     <div class="col-md-9">
+                                        <input type="text" class="form-control" id="Name" name="Name" value="">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12 row">
                                     <div class="col-md-3">
-                                      Caca
+                                      Distrito
                                     </div>
                                     <div class="col-md-9">
+                                        <select id="local_IdDistrict" name="caca" class="js-example-basic-single">
+                                          <% districts.forEach(function(item) { %>
+                                              <option id="<%=item.IdDistrict%>"><%=item.Name%></option>
+                                          <% }); %>                                          
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12 row">
+                                    <div class="col-md-3">
+                                      Descripción
+                                    </div>
+                                    <div class="col-md-9">
+                                        <textarea class="form-control" rows="5" id="Description" name="Description"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12 row">
@@ -68,12 +83,12 @@
                         <div class="box box-solid box-primary">
                             <div class="box-header">
                                 <i class="ion ion-clipboard"></i>
-                                <h3 class="box-title">Menu</h3>
+                                <h3 class="box-title">Servicios</h3>
                             </div>
                             <div class="box-body" style="overflow-y: auto; max-height: 252px;">
                                 <ul class="todo-list">
                                         <li class="">
-                                            <span class="text">Caca</span>
+                                            <span class="text">Ejemplo</span>
                                         </li>
                                 </ul>
                             </div>
@@ -88,7 +103,10 @@
                             </div>
                             <div class="box-body row">
                                 <div class="col-md-12">
+                                    <input type="text" class="form-control" name="searchMap" id="searchMap">
                                     <div id="Mapau" style="width: 100%; height: 420px;"></div>
+                                    <input type="hidden" class="form-control" name="Latitude" id="Latitude">
+                                    <input type="hidden" class="form-control" name="Longitude" id="Longitude">
                                 </div>
                             </div>
                         </div>
@@ -98,7 +116,7 @@
                     <div class="col-md-12">
                         <div class="box box-solid box-primary">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Photos</h3>
+                                <h3 class="box-title">Fotos</h3>
                                 <div class="box-tools pull-right" id="filecontainer">
                                     <input type="file" name="files[]" id="uploadFiles" accept=".jpg,.jpeg,.png" multiple/>
                                 </div>
@@ -108,11 +126,9 @@
                     </div>
                 </div>
                 <div class="box-footer">
-                    <a class="btn btn-default" href="@Url.Action("Index", "Locals", new { id = Model.restaurant.IdRestaurant })">Back to List</a>
-                    <button type="submit" value="Submit" class="btn btn-info pull-right">Submit</button>
-
+                    <a class="btn btn-default" href="/myStore">Volver</a>
+                    <button type="submit" value="Submit" class="btn btn-info pull-right">Guardar</button>
                 </div>
-            
         </div>
     </div>
 
@@ -135,6 +151,11 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
     <script src="/AdminLTE/js/adminlte.min.js"></script>
+    <script src="/AdminLTE/js/create-establecimiento.js"></script>
+    <script src="/AdminLTE/js/jquery.geocomplete.js"></script>
+    <script src="/AdminLTE/js/jquery.geocomplete.min.js"></script>
+    <script src="/javascripts/select2/js/select2.min.js"></script>
+    <script src="https://maps.google.com/maps/api/js?libraries=places&key=AIzaSyACKCmiFSETqUlePLoEjdiDAv3huM58KJU"></script>
 
 </body>
 </html>
