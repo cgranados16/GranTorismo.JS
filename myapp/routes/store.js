@@ -9,13 +9,13 @@ function getCategories(){
           return res.json();
       }).then(function(json) {
           return json;
-      });	
+      });
 }
 
-router.get('/', function(req, res, next) {	
+router.get('/', function(req, res, next) {
     getCategories().then(function(result) {
         res.render('store', { title: 'Gran Torismo', categories: result});
     });
-  });	  
+  });
 
 module.exports = router;

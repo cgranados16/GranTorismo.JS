@@ -31,50 +31,49 @@
             <div class="container">
                 <div class="row">
                   <!-- Products-->
-                  <div class="col-sm-8">
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>  </th>
+                          <th> Details </th>
+                          <th class="text-right"> Price </th>
+                          <th> </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!--Product 1-->
+                        <% cartContent.forEach(function(item) { %>
+
                           <tr>
-                            <th>  </th>
-                            <th> Details </th>
-                            <th> Price </th>
+                            <td style="width: 10%;"> <img class="img-thumbnail image1" src="images/product1.jpg" alt=""  /> </td>
+                            <td>
+                              <h4> <%=item.nombre %> </h4>
+                              <p>
+                                <%=item.descripcion %>
+                              </p>
+                            </td>
+                            <td> <div class="text-right">$<%=item.precio %></div> </td>
+                            <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
                           </tr>
-                        </thead>
-                        <tbody>
-                          <!--Product 1-->
-                          <% cartContent.forEach(function(item) { %>
 
-                            <tr>
-                              <th style="width: 10%;"> <img class="img-thumbnail image1" src="images/product1.jpg" alt=""  /> </th>
-                              <th>
-                                <h4> product <%=item.productId%> </h4>
-                                <p>
-                                  Lorem ipsum dolor sit amet...
-                                </p>
-                              </th>
-                              <th> $420.00 </th>
-                            </tr>
+                        <% }); %>
 
-                          <% }); %>
-
-                          <!-- Total -->
-                          <tr>
-                            <th></th>
-                            <th></th>
-                            <th><b>Subtotal (2 Items): $840.00</b></th>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                        <!-- Total -->
+                        <tr>
+                          <th></th>
+                          <th></th>
+                          <th class="text-right">
+                            <b>Subtotal (<%=cartContent.length%> Items): $<%=subtotal%></b>
+                            <br />
+                            <button class="btn btn-warning"> Proceed to checkout </button>
+                          </th>
+                          <th></th>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                   <!-- END Products -->
-                  <!-- Detalles -->
-                  <div class="col-md-4">
-                    <b>Subtotal: $840.00</b>
-                    <button class="btn btn-warning btn-block"> Proceed to checkout </button>
-                  </div>
-                  <!-- END Detalles -->
                 </div>
             </div>
             <!-- /.container -->
