@@ -5,11 +5,11 @@ var fetch = require('node-fetch');
 
 router.get(/^(.*)$/, function(req, res, next){
 	  if (!req.cookies.user){
-	    res.redirect('/signUp')
+		res.redirect('/signUp')
 	  }
 	  var cookie = JSON.parse(req.cookies.user);
 	  if (cookie['Role'] != 'Owner'){
-	    res.redirect('/');
+		res.redirect('/');
 	  }
 	  next();
 });
@@ -19,8 +19,21 @@ router.get('/', function(req, res, next) {
   res.render('myStore/index', { title: 'Mi Tienda'});
 });
 
+
+router.get('/', function(req, res, next) {	
+	getCategories().then(function(result) {
+		res.render('store', { title: 'Gran Torismo', categories: result});
+	});
+  });	  
+
 router.get('/new/place', function(req, res) {
-  res.render('myStore/new-place', { title: 'Mi Tienda'});
+fetch('http://localhost:51336/api/District')
+	  .then(function(res) {
+		  return res.json();
+	  }).then(function(json) {
+		  res.render('myStore/new-place', { title: 'Mi Tienda', districts:  json });
+	  });	
+  
 });
 
 
