@@ -29,4 +29,8 @@ router.get('/history', IsLogged, function(req, res, next){
     res.render('customer-orders', {title: 'Gran Torismo'});
   });
 
+router.get('/service', function(req, res, next){
+  res.render('service', {title: 'Gran Torismo'});
+});
+
 module.exports = router;
