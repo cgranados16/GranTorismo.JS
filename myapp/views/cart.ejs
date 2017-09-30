@@ -4,22 +4,23 @@
     <%- include('partials/head'); -%>
 </head>
 <body>
- <div id="all">
-    <header>
-       <%- include('partials/header'); -%>
-    </header>
+    <div id="all">
+      <header>
+         <%- include('partials/header'); -%>
+      </header>
 
-<div id="heading-breadcrumbs">
+        <div id="heading-breadcrumbs">
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-                        <h1>Shopping Cart</h1>
+                        <h1>My orders</h1>
                     </div>
                     <div class="col-md-5">
                         <ul class="breadcrumb">
+
                             <li><a href="index.html">Home</a>
                             </li>
-                            <li>Shopping Cart</li>
+                            <li>My orders</li>
                         </ul>
 
                     </div>
@@ -29,79 +30,80 @@
 
         <div id="content">
             <div class="container">
+
+
                 <div class="row">
-                  <!-- Products-->
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>  </th>
-                          <th> Details </th>
-                          <th class="text-right"> Price </th>
-                          <th> </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <!--Product 1-->
-                        <% cartContent.forEach(function(item) { %>
 
-                          <tr>
-                            <td style="width: 10%;"> <img class="img-thumbnail image1" src="images/product1.jpg" alt=""  /> </td>
-                            <td>
-                              <h4> <%=item.nombre %> </h4>
-                              <p>
-                                <%=item.descripcion %>
-                              </p>
-                            </td>
-                            <td> <div class="text-right">$<%=item.precio %></div> </td>
-                            <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                          </tr>
+                    <!-- *** LEFT COLUMN ***
+			 _________________________________________________________ -->
 
-                        <% }); %>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" id="customer-orders">
 
-                        <!-- Total -->
-                        <tr>
-                          <th></th>
-                          <th></th>
-                          <th class="text-right">
-                            <b>Subtotal (<%=cartContent.length%> Items): $<%=subtotal%></b>
-                            <br />
-                            <button class="btn btn-warning"> Proceed to checkout </button>
-                          </th>
-                          <th></th>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <!-- END Products -->
+
+                        <div class="box">
+
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Service Name</th>
+                                            <th>Date</th>
+                                            <th>Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>Mi libro luna de pluton</th>
+                                            <td>22/06/2013</td>
+                                            <td>$ 150.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+
+                        </div>
+                        <!-- /.box -->
+
+                    </div>
+                    <!-- /.col-md-9 -->
+                    <div class="col-md-2"></div>
+
+                    <!-- *** LEFT COLUMN END *** -->
+
+                    <!-- *** RIGHT COLUMN ***
+			 _________________________________________________________ -->
+
                 </div>
+
             </div>
             <!-- /.container -->
         </div>
         <!-- /#content -->
 
-    <footer>
-        <%- include('partials/footer'); -%>
-    </footer>
+      <footer>
+          <%- include('partials/footer'); -%>
+      </footer>
 
-    </div>
+      </div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script>
-        window.jQuery || document.write('<script src="javascripts/jquery-1.11.0.min.js"><\/script>')
-    </script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script>
+          window.jQuery || document.write('<script src="javascripts/jquery-1.11.0.min.js"><\/script>')
+      </script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-    <script src="javascripts/jquery.cookie.js"></script>
-    <script src="javascripts/waypoints.min.js"></script>
-    <script src="javascripts/jquery.counterup.min.js"></script>
-    <script src="javascripts/jquery.parallax-1.1.3.js"></script>
-    <script src="javascripts/front.js"></script>
-    <script src="javascripts/js.cookie.js"></script>
+      <script src="javascripts/jquery.cookie.js"></script>
+      <script src="javascripts/waypoints.min.js"></script>
+      <script src="javascripts/jquery.counterup.min.js"></script>
+      <script src="javascripts/jquery.parallax-1.1.3.js"></script>
+      <script src="javascripts/front.js"></script>
+      <script src="javascripts/js.cookie.js"></script>
 
-    <!-- owl carousel -->
-    <script src="javascripts/owl.carousel.min.js"></script>
-    <script src="javascripts/signUp/signUp.js"></script>
+      <!-- owl carousel -->
+      <script src="javascripts/owl.carousel.min.js"></script>
+      <script src="javascripts/signUp/signUp.js"></script>
 
-</body>
-</html>
+  </body>
+  </html>

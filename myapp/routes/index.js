@@ -9,7 +9,7 @@ function getUserDetails(id){
         return res.json();
     }).then(function(json) {
         return json;
-    });	
+    });
 }
 
 router.get(/^(.*)$/, function(req, res, next){
@@ -45,7 +45,7 @@ function IsLogged(req,res,next){
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if (req.cookies.user){
-    var cookie = JSON.parse(req.cookies.user) || '';    
+    var cookie = JSON.parse(req.cookies.user) || '';
     if (cookie['Role'] == 'Admin'){
       return res.render('index-Admin', { title: 'Express'});
     }
@@ -53,14 +53,9 @@ router.get('/', function(req, res, next) {
   return res.render('index', { title: 'Express'});
 });
 
-router.get('/caca',IsLogged, OwnerAuth, function(req, res, next) {
-      res.send("Caca");
-});
-
 router.get('/signOut', function (req, res) {
   res.clearCookie('user');
   res.redirect('/');
-})
-
+});
 
 module.exports = router;
