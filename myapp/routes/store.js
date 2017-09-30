@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
     });
   });
 
-router.get('/history', function(req, res, next){
+router.get('/history', IsLogged, function(req, res, next){
     res.render('customer-orders', {title: 'Gran Torismo'});
   });
 
