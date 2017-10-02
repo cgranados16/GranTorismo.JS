@@ -19,14 +19,11 @@ _________________________________________________________ -->
                     <div class="login">
                         <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>
                         <a href="signUp"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
-                    
                     </div>
-
                 <% }else{ %>
                     <div class="login">
-                    <a href="signOut"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign Out</span></a>
+                        <a href="signOut"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign Out</span></a>
                     </div>
-                    
                 <% }%>
             </div>
         </div>
@@ -39,15 +36,13 @@ _________________________________________________________ -->
 _________________________________________________________ -->
 
 <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
-
     <div class="navbar navbar-default yamm" role="navigation" id="navbar">
-
         <div class="container">
             <div class="navbar-header">
 
                 <a class="navbar-brand home" href="/">
-                    <img src="images/logo.png" alt="Universal logo" class="hidden-xs hidden-sm">
-                    <img src="images/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
+                    <img src="/images/logo.png" alt="Universal logo" class="hidden-xs hidden-sm">
+                    <img src="/images/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
                 </a>
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -65,8 +60,16 @@ _________________________________________________________ -->
                    <li class=" use-yamm yamm-fw">
                         <a href="myStore" class="toggle" >Mi Tienda</a>
                     </li>
-                    <% }%>   
+                    <% }else if (role && role == 'Admin') { %>   
                     <li class=" use-yamm yamm-fw">
+                        <a href="admin" class="toggle" >Administrador</a>
+                    </li>
+                    <% }else if (role && role == 'Client') { %>   
+                    <li class=" use-yamm yamm-fw">
+                        <a href="social" class="toggle" >Social</a>
+                    </li>
+                    <% } %>   
+                       <li class=" use-yamm yamm-fw">
                         <a href="store" class="toggle" >Tienda</a>
                     </li>
                     <!-- ========== FULL WIDTH MEGAMENU ================== -->

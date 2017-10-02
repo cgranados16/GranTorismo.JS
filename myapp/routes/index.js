@@ -44,12 +44,6 @@ function IsLogged(req,res,next){
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  if (req.cookies.user){
-    var cookie = JSON.parse(req.cookies.user) || '';    
-    if (cookie['Role'] == 'Admin'){
-      return res.render('index-Admin', { title: 'Express'});
-    }
-  }
   return res.render('index', { title: 'Express'});
 });
 
@@ -60,7 +54,8 @@ router.get('/caca',IsLogged, OwnerAuth, function(req, res, next) {
 router.get('/signOut', function (req, res) {
   res.clearCookie('user');
   res.redirect('/');
-})
+});
+
 
 
 module.exports = router;
