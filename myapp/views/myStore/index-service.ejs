@@ -42,7 +42,7 @@
         </div>
 
         <% servicios.forEach(function(item)  {%>
-        <a href="myStore/<%= idEstablecimiento %>/new/service/">
+        <a href="/myStore/<%= idEstablecimiento %>/edit/service/<%= item.idService%>">
         <div class=" col-md-3">
           <div class="panel panel-primary">
              <div class="panel-heading"><%= item.nombre%></div>

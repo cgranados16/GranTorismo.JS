@@ -53,4 +53,14 @@ router.get('/:id/new/service/', function(req, res) {
 });
 
 
+router.get('/:id/edit/service/:idService', function(req, res) {
+	fetch('http://localhost:51336/api/get/Service/'+ req.params.idService)
+	  .then(function(res) {
+		  return res.json();
+	  }).then(function(json) {
+		  res.render('myStore/edit-service', { title: 'Mi Tienda', servicio: json, idEstablecimiento: req.params.id});
+	  });
+});
+
+
 module.exports = router;

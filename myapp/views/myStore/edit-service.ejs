@@ -29,7 +29,7 @@
 
      <div class="box box-solid box-default">
         <div class="box-header with-border">
-            <h3 class="box-title">Registrar nuevo Establecimiento</h3>
+            <h3 class="box-title">Editar Servicio</h3>
             <div class="box-tools pull-right">
             </div>
         </div>
@@ -49,7 +49,7 @@
                                       Nombre
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" id="Name_establecimiento" required="required" name="nombre" value="">
+                                        <input type="text" class="form-control" id="Name_establecimiento" required="required" name="nombre" value="<%=servicio.nombre%>">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12 row">
@@ -57,7 +57,7 @@
                                       Precio
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" id="precio" required="required" name="precio" value="">
+                                        <input type="text" class="form-control" id="precio" required="required" name="precio" value="<%=servicio.precio %>">
                                         <input type="hidden" class="form-control" id="idEstablecimiento" required="required" name="idEstablishment" value="<%= idEstablecimiento %>">
                                     </div>
                                 </div>
@@ -66,7 +66,9 @@
                                       Descripción
                                     </div>
                                     <div class="col-md-9">
-                                        <textarea class="form-control" rows="5" id="Description" name="descripcion"></textarea>
+                                        <textarea class="form-control" rows="5" id="Description" name="descripcion"><%=servicio.descripcion%></textarea>
+                                        <input type="hidden" name='fotos' id="fotos_array" value="<%= servicio.fotos %>" />
+                                        <input type="hidden" name='idService' id="idService" value="<%= servicio.idService %>" />
                                     </div>
                                 </div>
                             </div>
@@ -77,10 +79,17 @@
                             <div class="box-header with-border">
                                 <h3 class="box-title">Fotos</h3>
                                 <div class="box-tools pull-right" id="filecontainer">
-                                    <input type="file" name='fotos' id="uploadFiles" accept=".jpg,.jpeg,.png" multiple/>
+                                    <input type="file" name='fotos_new' id="uploadFiles" accept=".jpg,.jpeg,.png" multiple/>
                                 </div>
-                            </div> 
-                            <div class="row timeline-body" id="contentImages"></div>
+                            </div>
+                            <div class="row timeline-body" id="contentImages">
+                              <% servicio.fotos.forEach(function(foto)  {%>
+                                <div class='col-md-4' style='overflow: hidden; height: 250px;margin-bottom:10px;' >
+                                        <a class='fa fa-remove btn btn-danger' style='float:right;position: absolute;' OnClick="deleteLoadedImage(this, '<%=foto%>')" ></a>
+                                        <img class='img-responsive img-rounded' src="http://localhost:51336/api/Show/Image/<%= foto%>/<%= servicio.idService%>" />
+                                  </div>
+                              <% });%>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -110,7 +119,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
     <script src="/AdminLTE/js/adminlte.min.js"></script>
-    <script src="/AdminLTE/js/new-service.js"></script>
+    <script src="/AdminLTE/js/edit-service.js"></script>
     <script src="/AdminLTE/js/jquery.geocomplete.js"></script>
     <script src="/AdminLTE/js/jquery.geocomplete.min.js"></script>
     <script src="/javascripts/select2/js/select2.min.js"></script>
