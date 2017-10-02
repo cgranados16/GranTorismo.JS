@@ -29,10 +29,10 @@
     <section class="content container-fluid">
         <div class="row">
           <div class="col-md-3">
-            <a href="/myStore/new/place">
+            <a href="/myStore/<%= idEstablecimiento %>/new/service/">
             <div class="small-box bg-aqua">
               <div class="inner">
-                <h4>Añadir <br /> Establecimiento</h4>
+                <h4>Añadir <br /> Servicio</h4>
               </div>
               <div class="icon">
                 <i class="ion-plus-round"></i>
@@ -41,8 +41,8 @@
           </a>
         </div>
 
-        <% establecimientos.forEach(function(item)  {%>
-        <a href="myStore/<%= item.idEstablishment %>/services/">
+        <% servicios.forEach(function(item)  {%>
+        <a href="myStore/<%= idEstablecimiento %>/new/service/">
         <div class=" col-md-3">
           <div class="panel panel-primary">
              <div class="panel-heading"><%= item.nombre%></div>
