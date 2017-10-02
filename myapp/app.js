@@ -14,6 +14,7 @@ var signUp = require('./routes/signUp');
 var store = require('./routes/store');
 var myStore = require('./routes/myStore');
 var cart = require('./routes/cart');
+var store_history = require('./routes/cart');
 
 var app = express();
 
@@ -49,6 +50,7 @@ app.use('/SignUp', signUp);
 app.use('/store', store);
 app.use('/myStore', myStore);
 app.use('/cart', cart);
+app.use('/store-history', store_history);
 
 // error handler
 app.use(function(err, req, res, next) {

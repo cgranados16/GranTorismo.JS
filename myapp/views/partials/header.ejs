@@ -15,18 +15,18 @@ _________________________________________________________ -->
                     <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
                     <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
                 </div>
-                <% if (!user) { %>           
+                <% if (!user) { %>
                     <div class="login">
                         <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>
                         <a href="signUp"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
-                    
+
                     </div>
 
                 <% }else{ %>
                     <div class="login">
-                    <a href="signOut"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign Out</span></a>
+                    <a href="/signOut"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign Out</span></a>
                     </div>
-                    
+
                 <% }%>
             </div>
         </div>
@@ -46,8 +46,8 @@ _________________________________________________________ -->
             <div class="navbar-header">
 
                 <a class="navbar-brand home" href="/">
-                    <img src="images/logo.png" alt="Universal logo" class="hidden-xs hidden-sm">
-                    <img src="images/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
+                    <img src="/images/logo.png" alt="Universal logo" class="hidden-xs hidden-sm">
+                    <img src="/images/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
                 </a>
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -61,11 +61,11 @@ _________________________________________________________ -->
             <div class="navbar-collapse collapse" id="navigation">
 
                 <ul class="nav navbar-nav navbar-right">
-                   <% if (role && role == 'Owner') { %>   
+                   <% if (role && role == 'Owner') { %>
                    <li class=" use-yamm yamm-fw">
                         <a href="myStore" class="toggle" >Mi Tienda</a>
                     </li>
-                    <% }%>   
+                    <% }%>
                     <li class=" use-yamm yamm-fw">
                         <a href="store" class="toggle" >Tienda</a>
                     </li>

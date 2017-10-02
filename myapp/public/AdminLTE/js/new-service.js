@@ -1,37 +1,6 @@
 var finalFiles = [];
 
 $(function () {
-
-    var selectType = "#local_IdDistrict";
-    $(selectType).select2({
-        placeholder: 'Select a District',
-        width: '100%'
-    });
-
-    $(selectType).select2("val", null);
-
-    $('#searchMap').geocomplete({
-        map: "#Mapau",
-        mapOptions: {
-            scrollwheel: true
-        },
-        markerOptions: {
-            draggable: true
-        },
-        location: "CR SJ"
-    });
-
-
-    $("#searchMap").bind("geocode:result", function (event, result) {
-        $("#Latitude").val(result.geometry.location.lat());
-        $("#Longitude").val(result.geometry.location.lng());
-    });
-    $("#searchMap").bind("geocode:dragged", function (event, latLng) {
-        $("#Latitude").val(latLng.lat());
-        $("#Longitude").val(latLng.lng());
-    });
-
-    
     var inputLocalFont = document.getElementById("uploadFiles");
     inputLocalFont.addEventListener("change", previewImages, false);
 
@@ -45,7 +14,7 @@ $(function () {
             finalFiles.push(fileList[i].name);
             var index = finalFiles.indexOf(fileList[i].name);
 
-            var content = "<div class='col-md-3' style='overflow: hidden; height: 250px;margin-bottom:10px;' id='image_" + index +"'>";
+            var content = "<div class='col-md-4' style='overflow: hidden; height: 250px;margin-bottom:10px;' id='image_" + index +"'>";
             content += "<a class='fa fa-remove btn btn-danger' style='float:right;position: absolute;' OnClick='deleteImage(this)' index-element='" + index+"'></a>";
             content += "<img class='img-responsive img-rounded' src='" + objectUrl + "' />";
             content += "</div>";
@@ -68,34 +37,20 @@ function deleteImage(object) {
     delete finalFiles[index];
     $("#uploadFilesNames").val(finalFiles);
 }
-/*
-$("form#createEstablecimiento").submit(function(){
-    var formData = new FormData(this);
-         $.ajax({
-                type: "POST",
-                 url: "http://localhost:51336/api/Upload",
-                 data: formData,
-                 processData: false,
-                 contentType:false,
-                 success: function (res) {
-                     console.log("yea");
-                     window.location.replace('/myStore');
-                }
-       });
-});
-*/
-$("form#createEstablecimiento").submit(function(){
+
+
+$("form#createService").submit(function(){
     var formData = $(this).serialize();
+    var formPost = new FormData(this);
    $.ajax({
              type: "POST",
-             url: "http://localhost:51336/api/Establecimiento/Create",
+             url: "http://localhost:51336/api/Servicio/Create",
              data: formData,
              success: function (res) {
-                 console.log(res.Success);
-                 if (res){
-                     window.location.replace('/myStore');
+                 if (res > 0){
+                     sendImages(formPost, res);
                  }else{
-                    alert("Error");
+                    alert("Error al subir los datos");
                  }
              },
              error: function (xhr) {
@@ -103,3 +58,18 @@ $("form#createEstablecimiento").submit(function(){
              }
    });
 });
+
+function sendImages(form, serviceId){
+    form.append("idService", serviceId);
+     $.ajax({
+            type: "POST",
+             url: "http://localhost:51336/api/Upload",
+             data: form,
+             processData: false,
+             contentType: false,
+             success: function (res) {
+                 alert("yea");
+                 window.location.replace('/myStore');
+            }
+   });
+}

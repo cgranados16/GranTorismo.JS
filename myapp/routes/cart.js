@@ -41,7 +41,12 @@ router.get('/', IsLogged, function(req, res, next) {
     var cookie = JSON.parse(req.cookies.user);
     getCart(cookie['IdCard']).then(function(result){
       var total = sumPrice(result);
-      res.render('cart', { title: 'cart', cartContent: result, subtotal: total });
+      res.render('cart', {
+        title: 'cart',
+        IdCard: cookie["IdCard"],
+        cartContent: result,
+        subtotal: total
+      });
     });
   });
 
