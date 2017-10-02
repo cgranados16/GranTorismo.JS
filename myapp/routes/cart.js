@@ -8,7 +8,6 @@ function getCart(id){
       .then(function(res) {
           return res.json();
       }).then(function(json) {
-        console.log(json);
           return json;
       });
 }
@@ -22,13 +21,33 @@ function getUserDetails(id){
     });
 }
 
-router.get('/', function(req, res, next) {
-    if (req.cookies.user){
-      var cookie = JSON.parse(req.cookies.user);
-      getCart(cookie['IdCard']).then(function(result){
-        res.render('cart', { title: 'cart', cartContent : result});
+
+function IsLogged(req,res,next){
+   if (!req.cookies.user){
+    res.redirect('/signUp')
+  }
+  next();
+}
+
+function sumPrice(cartContent){
+  var sum = 0;
+  for (var i = 0; i < cartContent.length; i++){
+    sum += cartContent[i].precio
+  }
+  return sum;
+}
+
+router.get('/', IsLogged, function(req, res, next) {
+    var cookie = JSON.parse(req.cookies.user);
+    getCart(cookie['IdCard']).then(function(result){
+      var total = sumPrice(result);
+      res.render('cart', {
+        title: 'cart',
+        IdCard: cookie["IdCard"],
+        cartContent: result,
+        subtotal: total
       });
-    }
+    });
   });
 
 module.exports = router;
