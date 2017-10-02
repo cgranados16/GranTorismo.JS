@@ -44,6 +44,7 @@ function IsLogged(req,res,next){
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+
   if (req.cookies.user){
     var cookie = JSON.parse(req.cookies.user) || '';
     if (cookie['Role'] == 'Admin'){
@@ -57,5 +58,9 @@ router.get('/signOut', function (req, res) {
   res.clearCookie('user');
   res.redirect('/');
 });
+
+router.get('/rating', function (req, res) {
+   res.render('rating', { title: 'Express'});
+})
 
 module.exports = router;

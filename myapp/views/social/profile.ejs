@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head'); -%>
+    <link rel="stylesheet" href="/javascripts/star-rating/css/star-rating.min.css">
+</head>
+<body class="hold-transition skin-green sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <%- include('partials/header'); -%>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <%- include('partials/sidebar'); -%>
+        </aside>
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    Profile
+                </h1>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-dashboard"></i><a href="/social/"> Index</a></li>
+                    <li>Profile</li>
+                    <li><%=profile.Username %></li>
+                </ol>
+            </section>
+
+            <section class="content container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="box box-primary">
+                            <div class="box-body box-profile">
+                                <img src="../images/default-user.png" class="img-responsive" alt="User Image" id="preImage" >
+                                <h3 class="profile-username text-center"><%=profile.FirstName %> <%=profile.LastName %></h3>
+                                <p class="text-muted text-center"><%=profile.Username %></p>
+                                <% if (user.IdCard != profile.IdCard) { -%>
+                                    <button type="button" id="followButton" class="btn btn-block btn-primary" onclick="Follow()">Follow</button>
+                                    <button id="unfollowButton" type="button" class="btn btn-block btn-default" onclick="Unfollow()"><i class="fa fa-fw fa-check"></i>Unfollow</button>
+                                <% } -%>
+                                <ul class="list-group list-group-unbordered">
+                                    <li class="list-group-item">
+                                        <b>Followers</b> <a class="pull-right"><%=profile.Followers %></a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Following</b> <a class="pull-right"><%=profile.Fol %></a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Reviews</b> <a class="pull-right">666</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.Foto -->    
+                    <div class="col-md-9">
+                      <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                          <li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
+                      </ul>
+                      <div class="tab-content">
+                          <div class="active tab-pane" id="activity">
+                            <!-- Post -->
+                            <div class="post">
+                                <div class="user-block">
+                                    <img class="img-circle img-bordered-sm" src="../images/default-user.png" alt="Rest Photo">
+                                    <span class="username">
+                                        <a href="#">McDonalds</a>
+                                    </span>
+                                    <span class="description">13-9-2009</span>
+                                </div>
+                                <div>
+
+                                    <div>
+                                        <p>
+                                            <dl class="dl-horizontal">
+                                                <dt>Price:</dt>
+                                                <dd>
+                                                    <input class="rating" data-min="0" data-max="5" data-step="1" data-size="xs" value="3">
+                                                </dd>
+                                            </dl>
+                                        </p>                                        
+                                        <p>
+                                            <div class="box box-solid">
+                                                <div class="box-header with-border">
+                                                    <h3 class="box-title">Description</h3>
+                                                </div>
+                                                <div class="box-body">
+                                                    <blockquote>
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                                    </blockquote>
+                                                </div>
+                                            </div>
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.tab-pane -->
+                    </div>
+                    <!-- /.tab-content -->
+                </div>
+                <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col 9 -->
+        </div>
+        <!-- /.row-->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Main Footer -->
+<footer class="main-footer">
+    <%- include('partials/footer'); -%>
+</footer>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="javascripts/jquery-1.11.0.min.js"><\/script>')
+    var IdCard = <%=user.IdCard; %> 
+    var IdFriend = <%=profile.IdCard; %> 
+</script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/AdminLTE/js/adminlte.min.js"></script>
+<script src="/javascripts/social/profile.js"></script>
+<script src="/javascripts/star-rating/js/star-rating.min.js"></script>
+
+
+</body>
+</html>
