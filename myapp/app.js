@@ -15,6 +15,7 @@ var store = require('./routes/store');
 var myStore = require('./routes/myStore');
 var cart = require('./routes/cart');
 var admin = require('./routes/admin');
+var store_history = require('./routes/cart');
 
 var app = express();
 
@@ -70,6 +71,7 @@ app.use(function(req, res, next){
   // default to plain-text. send()
   res.type('txt').send('Not found');
 });
+app.use('/store-history', store_history);
 
 // error handler
 app.use(function(err, req, res, next) {

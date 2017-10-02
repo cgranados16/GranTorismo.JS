@@ -15,7 +15,7 @@ _________________________________________________________ -->
                     <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
                     <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
                 </div>
-                <% if (!user) { %>           
+                <% if (!user) { %>
                     <div class="login">
                         <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>
                         <a href="signUp"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
@@ -23,6 +23,8 @@ _________________________________________________________ -->
                 <% }else{ %>
                     <div class="login">
                         <a href="signOut"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign Out</span></a>
+                    </div>
+                    <a href="/signOut"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign Out</span></a>
                     </div>
                 <% }%>
             </div>
@@ -56,11 +58,12 @@ _________________________________________________________ -->
             <div class="navbar-collapse collapse" id="navigation">
 
                 <ul class="nav navbar-nav navbar-right">
-                   <% if (role && role == 'Owner') { %>   
+                   <% if (role && role == 'Owner') { %>
                    <li class=" use-yamm yamm-fw">
                         <a href="myStore" class="toggle" >Mi Tienda</a>
                     </li>
                     <% }else if (role && role == 'Admin') { %>   
+                    <% }%>
                     <li class=" use-yamm yamm-fw">
                         <a href="admin" class="toggle" >Administrador</a>
                     </li>
