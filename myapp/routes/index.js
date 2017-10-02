@@ -63,4 +63,8 @@ router.get('/signOut', function (req, res) {
 })
 
 
+router.get('/rating', function (req, res) {
+   res.render('rating', { title: 'Express'});
+})
+
 module.exports = router;
