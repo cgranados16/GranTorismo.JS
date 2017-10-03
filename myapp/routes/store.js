@@ -30,10 +30,16 @@ function IsLogged(req, res, next) {
 
 router.get('/', function(req, res, next) {
   getCategories().then(function(result) {
-    res.render('store', {
+    var respuesta = {
       title: 'Gran Torismo',
-      categories: result
-    });
+      categories: result,
+      IdCard: null
+    };
+    if (req.cookies.user){
+      var cookie = JSON.parse(req.cookies.user);
+      respuesta.IdCard = cookie["IdCard"];
+    }
+    res.render('store', respuesta);
   });
 });
 
@@ -44,8 +50,11 @@ router.get('/history', IsLogged, function(req, res, next) {
 });
 
 router.get('/service', function(req, res, next) {
-  getSuggestions(req.param.idService).then(function(result){
-    res.render('service', {title: 'Gran Torismo', serviceData: result});
+  getSuggestions(req.param.idService).then(function(result) {
+    res.render('service', {
+      title: 'Gran Torismo',
+      serviceData: result
+    });
   });
 });
 

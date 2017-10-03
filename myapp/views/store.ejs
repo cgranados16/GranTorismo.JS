@@ -3,9 +3,38 @@
 <head>
     <%- include('partials/head'); -%>
 
-    
+    <script>
+      var app1 = angular.module('app1', []);
+      app1.controller("ctrl", function($scope, $http){
+        // Trae los servicios
+        $http.get("http://localhost:51336/api/Product/")
+        .then(function(response){
+          $scope.services = response.data;
+        });
+
+        // Agrega un producto al carrito
+        <%if (IdCard != null){%>
+        var userId = <%=IdCard%>;
+        $scope.addToCart = function(productId){
+          $http.post("http://localhost:51336/api/Cart/" + userId + "/" + productId + "/")
+          .then(function(response){
+            console.log(response.data);
+          });
+        }
+        <%} else {%>
+        $scope.addToCart = function(productId){
+          if (confirm("Debe autenticarse para agregar productos al carrito. \nDesea autenticarse?")){
+            window.location.href = "http://localhost:3000/signUp";
+          }
+        }
+        <%}%>
+
+      });
+
+    </script>
+
 </head>
-<body>
+<body ng-app="app1" ng-controller="ctrl">
  <div id="all">
     <header>
        <%- include('partials/header'); -%>
@@ -162,7 +191,7 @@
 
                         <div class="row products">
 
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-md-4 col-sm-6" ng-repeat="service in services">
                                 <div class="product">
                                     <div class="image">
                                         <a href="shop-detail.html">
@@ -171,10 +200,10 @@
                                     </div>
                                     <!-- /.image -->
                                     <div class="text">
-                                        <h3><a href="shop-detail.html">Fur coat with very but very very long name</a></h3>
-                                        <p class="price">$143.00</p>
+                                        <h3><a href="shop-detail.html">{{service.nombre}}</a></h3>
+                                        <p class="price">${{service.precio}}</p>
                                         <div class="btn-group">
-                                            <a href="shop-basket.html" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                            <button ng-click="addToCart(service.idService)" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</button>
                                         </div>
                                     </div>
                                     <!-- /.text -->
