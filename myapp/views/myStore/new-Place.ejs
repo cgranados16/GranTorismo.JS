@@ -33,8 +33,8 @@
             <div class="box-tools pull-right">
             </div>
         </div>
+        <form action="javascript:;" method="post" id="createEstablecimiento" enctype="multipart/form-data">
         <div class="box-body">
-            
                 <div class="row">
                     <div class="col-md-5">
                         <div class="box box-solid box-primary">
@@ -49,7 +49,7 @@
                                       Nombre
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" id="Name" name="Name" value="">
+                                        <input type="text" class="form-control" id="Name_establecimiento" required="required" name="nombre" value="">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12 row">
@@ -57,9 +57,9 @@
                                       Distrito
                                     </div>
                                     <div class="col-md-9">
-                                        <select id="local_IdDistrict" name="caca" class="js-example-basic-single">
+                                        <select id="local_IdDistrict" name="idDistrito" required="required" class="js-example-basic-single">
                                           <% districts.forEach(function(item) { %>
-                                              <option id="<%=item.IdDistrict%>"><%=item.Name%></option>
+                                              <option value="<%=item.IdDistrict%>"><%=item.Name%></option>
                                           <% }); %>                                          
                                         </select>
                                     </div>
@@ -69,31 +69,12 @@
                                       Descripción
                                     </div>
                                     <div class="col-md-9">
-                                        <textarea class="form-control" rows="5" id="Description" name="Description"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-12 row">
-                                    <div class="col-md-3">
-                                    </div>
-                                    <div class="col-md-9">
+                                        <textarea class="form-control" rows="10" id="Description" name="descripcion"></textarea>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="box box-solid box-primary">
-                            <div class="box-header">
-                                <i class="ion ion-clipboard"></i>
-                                <h3 class="box-title">Servicios</h3>
-                            </div>
-                            <div class="box-body" style="overflow-y: auto; max-height: 252px;">
-                                <ul class="todo-list">
-                                        <li class="">
-                                            <span class="text">Ejemplo</span>
-                                        </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                      </div>
                     <div class="col-md-7">
                         <div class="box box-solid box-success">
                             <div class="box-header with-border">
@@ -105,25 +86,13 @@
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" name="searchMap" id="searchMap">
                                     <div id="Mapau" style="width: 100%; height: 420px;"></div>
-                                    <input type="hidden" class="form-control" name="Latitude" id="Latitude">
-                                    <input type="hidden" class="form-control" name="Longitude" id="Longitude">
+                                    <input type="hidden" class="form-control" name="latitud" id="Latitude">
+                                    <input type="hidden" class="form-control" name="longitud" id="Longitude">
+                                    <input type="hidden" class="form-control" name="idOwner" id="idOwner" value="<%= user.IdCard%>">
                                 </div>
                             </div>
                         </div>
                     </div>    
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="box box-solid box-primary">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">Fotos</h3>
-                                <div class="box-tools pull-right" id="filecontainer">
-                                    <input type="file" name="files[]" id="uploadFiles" accept=".jpg,.jpeg,.png" multiple/>
-                                </div>
-                            </div>
-                            <div class="row timeline-body" id="contentImages"></div>
-                        </div>
-                    </div>
                 </div>
                 <div class="box-footer">
                     <a class="btn btn-default" href="/myStore">Volver</a>
@@ -131,7 +100,7 @@
                 </div>
         </div>
     </div>
-
+</form>
       
     </section>
     <!-- /.content -->

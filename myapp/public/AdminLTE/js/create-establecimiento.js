@@ -55,7 +55,7 @@ $(function () {
         }
 
         $(inputLocalFont).hide();
-        inputLocalFont = $('<input type="file" name="files[]" accept=".jpg,.jpeg,.png" multiple />').appendTo("#filecontainer").get(0);
+        inputLocalFont = $('<input type="file" name="fotos" accept=".jpg,.jpeg,.png" multiple />').appendTo("#filecontainer").get(0);
         inputLocalFont.addEventListener("change", previewImages, false);
         $("#uploadFilesNames").val(finalFiles);
     }
@@ -68,3 +68,38 @@ function deleteImage(object) {
     delete finalFiles[index];
     $("#uploadFilesNames").val(finalFiles);
 }
+/*
+$("form#createEstablecimiento").submit(function(){
+    var formData = new FormData(this);
+         $.ajax({
+                type: "POST",
+                 url: "http://localhost:51336/api/Upload",
+                 data: formData,
+                 processData: false,
+                 contentType:false,
+                 success: function (res) {
+                     console.log("yea");
+                     window.location.replace('/myStore');
+                }
+       });
+});
+*/
+$("form#createEstablecimiento").submit(function(){
+    var formData = $(this).serialize();
+   $.ajax({
+             type: "POST",
+             url: "http://localhost:51336/api/Establecimiento/Create",
+             data: formData,
+             success: function (res) {
+                 console.log(res.Success);
+                 if (res){
+                     window.location.replace('/myStore');
+                 }else{
+                    alert("Error");
+                 }
+             },
+             error: function (xhr) {
+                 alert("Oops");
+             }
+   });
+});

@@ -1,0 +1,61 @@
+
+<html lang="en">
+<head>
+    <%- include('partials/head'); -%>
+    <link rel="stylesheet" href="/AdminLTE/css/skins/skin-green.min.css">
+</head>
+<body>
+ <div id="all">
+    <header>
+       <%- include('partials/header'); -%>
+    </header>
+
+    <div class="form-horizontal">
+    	<input id="IdCard" class="hidden"> 
+	    <div class="form-group">
+	        <div class="col-md-10">
+	            <input id="Price" name="Price"  class="rating" data-min="0" data-max="5" data-step="1" data-size="xs">           
+	        </div>
+	    </div>
+	    <div class="form-group">                    
+	        <div class="col-md-10">
+	            <input id="Quality" name="Quality" class="rating" data-min="0" data-max="5" data-step="1" data-size="xs">                        
+	        </div>
+	    </div>
+	    <div class="form-group">                 
+	        <div class="col-md-10">
+	            <textarea id="Description" name="Description" type="text" class="form-control" rows="3" placeholder="Enter ..."></textarea>                       
+	        </div>
+	    </div>
+	    <div class="form-group">
+	        <div class="col-md-offset-2 col-md-10">
+	            <input type="submit" onclick="Submit()" class="btn btn-default" />
+	        </div>
+	    </div>
+	</div>
+
+    <footer>
+        <%- include('partials/footer'); -%>
+    </footer>
+
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="javascripts/jquery-1.11.0.min.js"><\/script>')
+    </script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+    <script src="javascripts/jquery.cookie.js"></script>
+    <script src="javascripts/waypoints.min.js"></script>
+    <script src="javascripts/jquery.counterup.min.js"></script>
+    <script src="javascripts/jquery.parallax-1.1.3.js"></script>
+    <script src="javascripts/front.js"></script>
+    <script src="javascripts/js.cookie.js"></script>
+
+    <!-- owl carousel -->
+    <script src="javascripts/owl.carousel.min.js"></script>
+    <script src="javascripts/signUp/signUp.js"></script>
+    <script src="javascripts/star-rating/star-rating.js"></script>>
+</body>
+</html>

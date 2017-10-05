@@ -9,11 +9,12 @@ var flash = require('connect-flash');
 const fetch = require('node-fetch');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var social = require('./routes/social');
 var signUp = require('./routes/signUp');
 var store = require('./routes/store');
 var myStore = require('./routes/myStore');
 var cart = require('./routes/cart');
+var admin = require('./routes/admin');
 var store_history = require('./routes/cart');
 
 var app = express();
@@ -45,11 +46,31 @@ app.use(function(req, res, next){
 
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/social', social);
 app.use('/SignUp', signUp);
 app.use('/store', store);
 app.use('/myStore', myStore);
 app.use('/cart', cart);
+app.use('/admin', admin);
+
+
+app.use(function(req, res, next){
+  res.status(404);
+
+  // respond with html page
+  if (req.accepts('html')) {
+    res.render('404', { title: 'Not Found'});
+    return;
+  }
+
+  // respond with json
+  if (req.accepts('json')) {
+    res.send({ error: 'Not found' });
+    return;
+  }
+  // default to plain-text. send()
+  res.type('txt').send('Not found');
+});
 app.use('/store-history', store_history);
 
 // error handler

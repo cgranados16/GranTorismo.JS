@@ -1,0 +1,52 @@
+
+    <!-- Logo -->
+    <a href="/myStore" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>GT</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Gran</b>Torismo</span>
+    </a>
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- User Account Menu -->
+          <li class="dropdown user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span class="ion-ios-person">
+                <% if (user) { %>
+                   <%=user.FirstName %> <%=user.LastName %>
+                 <% }%>
+                </span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- The user image in the menu -->
+              <li class="user-header">
+                <% if (user) { %>
+                  <p>
+                    <%=user.FirstName%> <%=user.MiddleName %> <%=user.LastName %> <%=user.SecondLastName %>
+                  </p>
+                <% }%>
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="/" class="btn btn-default btn-flat">Return to Home Page</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+        </ul>
+      </div>
+    </nav>
