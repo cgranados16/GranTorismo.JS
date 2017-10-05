@@ -71,7 +71,42 @@
                                 </div>
                             </div>
                         </div>
-                      </div>
+
+                      <div class="box box-solid box-primary">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Paquete</h3>
+                                <div class="box-tools pull-right">
+                                </div>
+                            </div>
+                            <div class="box-body row">
+
+                            <div class="form-group col-md-12 row">
+                                    <div class="col-md-3">
+                                      Servicios
+                                    </div>
+                                    <div class="col-md-10">
+                                        <select id="servicePackage" name="servicePackage" class="js-example-basic-single">
+                                          <% servicios.forEach(function(item) { %>
+                                              <option value="<%=item.idService  %>"><%=item.nombre%></option>
+                                          <% }); %>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                      <button type="button" onclick="addToPackage()" class="btn btn-success fa fa-plus"></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12" id="content-package">
+                                  <h4 class="box-title">Mis Servicios</h3>
+                                  <!-- /.box-header -->
+                                    <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
+                                    <ul class="todo-list">
+                                      
+                                    </ul>
+                                  </div>
+                                  <!-- /.box-body -->
+                              </div>
+                            </div>
+                          </div>                      
                     <div class="col-md-7">
                         <div class="box box-solid box-primary">
                             <div class="box-header with-border">
@@ -85,7 +120,7 @@
                     </div>
                 </div>
                 <div class="box-footer">
-                    <a class="btn btn-default" href="/myStore">Volver</a>
+                    <a class="btn btn-default" href="/myStore/<%= idEstablecimiento %>/services">Volver</a>
                     <button type="submit" value="Submit" class="btn btn-info pull-right">Guardar</button>
                 </div>
         </div>

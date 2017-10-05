@@ -73,7 +73,54 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="box box-solid box-primary">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Paquete</h3>
+                                <div class="box-tools pull-right">
+                                </div>
+                            </div>
+                            <div class="box-body row">
+
+                            <div class="form-group col-md-12 row">
+                                    <div class="col-md-3">
+                                      Servicios
+                                    </div>
+                                    <div class="col-md-10">
+                                        <select id="servicePackage" name="servicePackage" class="js-example-basic-single">
+                                          <% servicios.forEach(function(item) { %>
+                                            <% if (findWithAttr(packageSer,"idService",item.idService) < 0){ %>
+                                                <option value="<%=item.idService  %>"><%=item.nombre%></option>
+                                              <% } %>
+                                          <% }); %>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                      <button type="button" onclick="addToPackage()" class="btn btn-success fa fa-plus"></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12" id="content-package">
+                                  <h4 class="box-title">Mis Servicios</h3>
+                                  <!-- /.box-header -->
+                                    <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
+                                    <ul class="todo-list">
+                                      <% packageSer.forEach(function(item) { %>
+                                      <li>
+                                        <span class="text"><%= item.nombre %></span>
+                                        <input type="hidden" id="option_<%= item.idService %>" value="<%= item.idService %>" name="packageServices" attr-name="<%= item.nombre %>" />
+                                        <div class="tools"><i onclick="removePackage(this, <%= item.idService %>)" class="fa fa-trash-o"></i></div>
+                                      </li>
+                                      <% }); %>
+                                    </ul>
+                                  </div>
+                                  <!-- /.box-body -->
+                              </div>
+                            </div>
+
                       </div>
+
+
+
                     <div class="col-md-7">
                         <div class="box box-solid box-primary">
                             <div class="box-header with-border">
@@ -94,7 +141,7 @@
                     </div>
                 </div>
                 <div class="box-footer">
-                    <a class="btn btn-default" href="/myStore">Volver</a>
+                    <a class="btn btn-default" href="/myStore/<%= idEstablecimiento %>/services">Volver</a>
                     <button type="submit" value="Submit" class="btn btn-info pull-right">Guardar</button>
                 </div>
         </div>
@@ -111,7 +158,17 @@
     <%- include('partials/footer'); -%>
   </footer>
 </div>
- 
+ <%
+     function findWithAttr(array, attr, value) {
+        for(var i = 0; i < array.length; i += 1) {
+            if(array[i][attr] === value) {
+                return i;
+            }
+        }
+        return -1;
+    }
+     %>
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script>
         window.jQuery || document.write('<script src="javascripts/jquery-1.11.0.min.js"><\/script>')

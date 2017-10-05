@@ -29,7 +29,7 @@
 
      <div class="box box-solid box-default">
         <div class="box-header with-border">
-            <h3 class="box-title">Registrar nuevo Establecimiento</h3>
+            <h3 class="box-title">Editar Establecimiento</h3>
             <div class="box-tools pull-right">
             </div>
         </div>
@@ -49,7 +49,7 @@
                                       Nombre
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" id="Name_establecimiento" required="required" name="nombre" value="">
+                                        <input type="text" class="form-control" id="Name_establecimiento" required="required" name="nombre" value="<%=establecimiento.nombre%>">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12 row">
@@ -60,7 +60,7 @@
                                         <select id="local_IdDistrict" name="idDistrito" required="required" class="js-example-basic-single">
                                           <% districts.forEach(function(item) { %>
                                               <option value="<%=item.IdDistrict%>"><%=item.Name%></option>
-                                          <% }); %>                                          
+                                          <% }); %>
                                         </select>
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@
                                       Descripción
                                     </div>
                                     <div class="col-md-9">
-                                        <textarea class="form-control" rows="10" id="Description" name="descripcion"></textarea>
+                                        <textarea class="form-control" rows="10" id="Description" name="descripcion"><%=establecimiento.descripcion%></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -86,16 +86,17 @@
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" name="searchMap" id="searchMap">
                                     <div id="Mapau" style="width: 100%; height: 420px;"></div>
-                                    <input type="hidden" class="form-control" name="latitud" id="Latitude">
-                                    <input type="hidden" class="form-control" name="longitud" id="Longitude">
+                                    <input type="hidden" class="form-control" name="latitud" id="Latitude"  value="<%-establecimiento.latitud%>">
+                                    <input type="hidden" class="form-control" name="longitud" id="Longitude" value="<%-establecimiento.Longitude%>">
                                     <input type="hidden" class="form-control" name="idOwner" id="idOwner" value="<%= user.IdCard%>">
+                                    <input type="hidden" class="form-control" name="idEstablishment" id="idEstablishment" value="<%= establecimiento.idEstablishment%>">
                                 </div>
                             </div>
                         </div>
                     </div>    
                 </div>
                 <div class="box-footer">
-                    <a class="btn btn-default" href="/myStore">Volver</a>
+                    <a class="btn btn-default" href="/myStore/<%= establecimiento.idEstablishment %>/services">Volver</a>
                     <button type="submit" value="Submit" class="btn btn-info pull-right">Guardar</button>
                 </div>
         </div>
@@ -116,11 +117,14 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script>
         window.jQuery || document.write('<script src="javascripts/jquery-1.11.0.min.js"><\/script>')
+        var establecimiento = <%-establecimiento.idDistrito%>;
+        var latitud = <%-establecimiento.latitud%>;
+        var longitud = <%-establecimiento.longitud%>;
     </script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
     <script src="/AdminLTE/js/adminlte.min.js"></script>
-    <script src="/AdminLTE/js/create-establecimiento.js"></script>
+    <script src="/AdminLTE/js/edit-establecimiento.js"></script>
     <script src="/AdminLTE/js/jquery.geocomplete.js"></script>
     <script src="/AdminLTE/js/jquery.geocomplete.min.js"></script>
     <script src="/javascripts/select2/js/select2.min.js"></script>

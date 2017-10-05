@@ -49,17 +49,28 @@ router.get('/:id/services/', function(req, res) {
 });
 
 router.get('/:id/new/service/', function(req, res) {
-	res.render('myStore/new-service', { title: 'Mi Tienda', idEstablecimiento: req.params.id});
+fetch('http://localhost:51336/api/get/Servicios/').then(function(res) {return res.json();}).then(function(json) {
+		res.render('myStore/new-service', { title: 'Mi Tienda', servicios: json, idEstablecimiento: req.params.id});
+	});
 });
 
 
 router.get('/:id/edit/service/:idService', function(req, res) {
-	fetch('http://localhost:51336/api/get/Service/'+ req.params.idService)
-	  .then(function(res) {
-		  return res.json();
-	  }).then(function(json) {
-		  res.render('myStore/edit-service', { title: 'Mi Tienda', servicio: json, idEstablecimiento: req.params.id});
-	  });
+	fetch('http://localhost:51336/api/get/Service/'+ req.params.idService).then(function(res) {return res.json();}).then(function(json) {
+		fetch('http://localhost:51336/api/get/Package/'+ req.params.idService).then(function(res) {return res.json();}).then(function(packageJson) {
+			fetch('http://localhost:51336/api/get/Servicios/').then(function(res) {return res.json();}).then(function(serviciosJson) {
+		 		res.render('myStore/edit-service', { title: 'Mi Tienda', servicios: serviciosJson,servicio: json, idEstablecimiento: req.params.id, packageSer: packageJson});
+			}); 		
+		});
+	});
+});
+
+router.get('/:id/edit', function(req, res) {
+	fetch('http://localhost:51336/api/get/Establecimiento/'+ req.params.id).then(function(res) {return res.json();}).then(function(json) {
+		fetch('http://localhost:51336/api/District').then(function(res) {return res.json();}).then(function(json2) {
+			res.render('myStore/edit-establecimiento', { title: 'Mi Tienda', establecimiento: json, districts:  json2});
+		});	
+	});
 });
 
 

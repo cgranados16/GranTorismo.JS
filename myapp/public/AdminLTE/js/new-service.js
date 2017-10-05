@@ -1,6 +1,15 @@
 var finalFiles = [];
 
 $(function () {
+
+    var selectType = "#servicePackage";
+    $(selectType).select2({
+        placeholder: 'Select a Service',
+        width: '100%'
+    });
+
+    $(selectType).select2("val", null)
+
     var inputLocalFont = document.getElementById("uploadFiles");
     inputLocalFont.addEventListener("change", previewImages, false);
 
@@ -28,7 +37,34 @@ $(function () {
         inputLocalFont.addEventListener("change", previewImages, false);
         $("#uploadFilesNames").val(finalFiles);
     }
+
 });
+
+function addToPackage(){
+        var selectedService = $("#servicePackage").val();
+        var text = $("#servicePackage option:selected").text();
+        var content = $("#content-package ul");
+        if (selectedService != null && selectedService > 0){
+            $("#servicePackage option:selected").remove();
+            $("#servicePackage").select2("val", null);
+            var htmlContent = '<li>';
+            htmlContent += '<span class="text">'+text+'</span>';
+            htmlContent += '<input type="hidden" id="option_'+selectedService+'" value="'+selectedService+'" name="packageServices" attr-name="'+text+'" />';
+            htmlContent += '<div class="tools"><i onclick="removePackage(this, '+selectedService+')" class="fa fa-trash-o"></i></div>';
+            htmlContent += '</li>';
+            content.append(htmlContent);
+        }
+    }
+
+function removePackage(button, serviceId){
+    var li = $(button).parent().parent();
+    var serviceName = $("#option_"+serviceId).attr("attr-name");
+    var htmlOption = '<option value="'+serviceId+'">'+serviceName+'</option>';
+    $("#servicePackage").append(htmlOption);
+    li.remove();
+    
+}
+
 
 
 function deleteImage(object) {
@@ -48,7 +84,7 @@ $("form#createService").submit(function(){
              data: formData,
              success: function (res) {
                  if (res > 0){
-                     sendImages(formPost, res);
+                     sendImages(formPost, res, $("#idEstablecimiento").val());
                  }else{
                     alert("Error al subir los datos");
                  }
@@ -59,7 +95,7 @@ $("form#createService").submit(function(){
    });
 });
 
-function sendImages(form, serviceId){
+function sendImages(form, serviceId, establecimientoId){
     form.append("idService", serviceId);
      $.ajax({
             type: "POST",
@@ -68,8 +104,7 @@ function sendImages(form, serviceId){
              processData: false,
              contentType: false,
              success: function (res) {
-                 alert("yea");
-                 window.location.replace('/myStore');
+                 window.location.replace('/myStore/'+establecimientoId+'/services/');
             }
    });
 }
