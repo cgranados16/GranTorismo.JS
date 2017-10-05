@@ -24,8 +24,6 @@ _________________________________________________________ -->
                     <div class="login">
                         <a href="signOut"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign Out</span></a>
                     </div>
-                    <a href="/signOut"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign Out</span></a>
-                    </div>
                 <% }%>
             </div>
         </div>
@@ -61,16 +59,19 @@ _________________________________________________________ -->
                    <li class=" use-yamm yamm-fw">
                         <a href="myStore" class="toggle" >Mi Tienda</a>
                     </li>
-                    <% }else if (role && role == 'Admin') { %>   
+                    <% }else if (role && role == 'Admin') { %>
                     <li class=" use-yamm yamm-fw">
                         <a href="admin" class="toggle" >Administrador</a>
                     </li>
-                    <% }else if (role && role == 'Client') { %>   
+                    <% }else if (role && role == 'Client') { %>
                     <li class=" use-yamm yamm-fw">
                         <a href="social" class="toggle" >Social</a>
                     </li>
-                    <% } %>   
-                       <li class=" use-yamm yamm-fw">
+                    <li class=" use-yamm yamm-fw">
+                        <a href="cart" class="toggle" >Carrito</a>
+                    </li>
+                    <% } %>
+                    <li class=" use-yamm yamm-fw">
                         <a href="store" class="toggle" >Tienda</a>
                     </li>
                     <!-- ========== FULL WIDTH MEGAMENU ================== -->

@@ -21,6 +21,15 @@ function getSuggestions(idServicio) {
     });
 }
 
+function getService(idService){
+  return fetch("http://localhost:51336/api/Product/" + idService)
+  .then(function(res) {
+    return res.json();
+  }).then(function(json){
+    return json;
+  });
+}
+
 function IsLogged(req, res, next) {
   if (!req.cookies.user) {
     res.redirect('/signUp')
@@ -49,11 +58,17 @@ router.get('/history', IsLogged, function(req, res, next) {
   });
 });
 
-router.get('/service', function(req, res, next) {
-  getSuggestions(req.param.idService).then(function(result) {
-    res.render('service', {
-      title: 'Gran Torismo',
-      serviceData: result
+router.get('/service/:id', function(req, res, next) {
+  //var suggestions = getSuggestions(req.params.id);
+  getService(req.params.id)
+  .then(function(serviceData){
+    getSuggestions(req.params.id)
+    .then(function(suggestions){
+      res.render('service', {
+        title: 'Gran Torismo',
+        serviceData: serviceData,
+        suggestions: suggestions
+      });
     });
   });
 });

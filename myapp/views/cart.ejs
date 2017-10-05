@@ -16,7 +16,7 @@
 
     // borra un item
     $scope.deleteItem = function (serviceId){
-      $http.delete("http://localhost:51336/api/Cart/420/" + serviceId)
+      $http.delete("http://localhost:51336/api/Cart/<%=IdCard%>/" + serviceId)
       .then(function (response){
         location.reload();
       });

@@ -18,7 +18,7 @@
         $scope.addToCart = function(productId){
           $http.post("http://localhost:51336/api/Cart/" + userId + "/" + productId + "/")
           .then(function(response){
-            console.log(response.data);
+            alert("El producto ha sido agregado al carrito!");
           });
         }
         <%} else {%>
@@ -28,6 +28,10 @@
           }
         }
         <%}%>
+
+        $scope.viewService = function(serviceId){
+          window.location.href = "http://localhost/store/service/" + serviceId;
+        }
 
       });
 
@@ -194,7 +198,7 @@
                             <div class="col-md-4 col-sm-6" ng-repeat="service in services">
                                 <div class="product">
                                     <div class="image">
-                                        <a href="shop-detail.html">
+                                        <a href="">
                                             <img src="images/product1.jpg" alt="" class="img-responsive image1">
                                         </a>
                                     </div>
