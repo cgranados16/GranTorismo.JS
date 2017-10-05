@@ -48,7 +48,7 @@ router.get('/', function(req, res, next) {
   if (req.cookies.user){
     var cookie = JSON.parse(req.cookies.user) || '';
     if (cookie['Role'] == 'Admin'){
-      return res.render('index-Admin', { title: 'Express'});
+      return res.render('index', { title: 'Express'});
     }
   }
   return res.render('index', { title: 'Express'});

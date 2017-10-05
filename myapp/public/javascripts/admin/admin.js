@@ -20,16 +20,18 @@ function Create(){
 }
 
 function deleteAdministrador(id){
-    console.log("http://localhost:51336/api/Administradores/Delete/"+id);
-  $.ajax({
-        type: "POST",
-        url: "http://localhost:51336/api/Administradores/Delete/"+id,
-        success: function (res) {
-                window.location.replace('/admin/Administradores');
-        },
-        error: function (xhr) {
-            window.location.replace('/admin/Administradores/badLogin');
-        }
-  });
+    if (confirm('Realmente desea eliminar al administrador ?')) {
+        console.log("http://localhost:51336/api/Administradores/Delete/"+id);
+      $.ajax({
+            type: "POST",
+            url: "http://localhost:51336/api/Administradores/Delete/"+id,
+            success: function (res) {
+                    window.location.replace('/admin/Administradores');
+            },
+            error: function (xhr) {
+                window.location.replace('/admin/Administradores/badLogin');
+            }
+      });
+    }
 }
 
