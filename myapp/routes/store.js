@@ -35,7 +35,7 @@ router.get('/', function(req, res, next) {
       categories: result,
       IdCard: null
     };
-    if (req.cookies.user){
+    if (req.cookies.user) {
       var cookie = JSON.parse(req.cookies.user);
       respuesta.IdCard = cookie["IdCard"];
     }
