@@ -46,13 +46,20 @@ router.all('/Administradores/badLogin', function(req, res) {
   	res.redirect('/admin/Administradores');
 });
 
-router.get('/Servicios', function(req, res, next) {
-  fetch('http://localhost:51336/api/Shop/Servicios')
+
+function getServicios(){
+  return fetch('http://localhost:51336/api/Servicios/Get/all')
     .then(function(res) {
-      return res.json();
+        return res.json();
     }).then(function(json) {
-      res.render('admin/Categorias', { title: 'Admin', services:  json });
-    }); 
+        return json;
+    });
+}
+
+router.get('/Servicios', function(req, res, next) {
+  getServicios().then(function(result) {
+        res.render('admin/Servicios', { title: 'Admin',services: result});
+      }); 
 });
 
 
