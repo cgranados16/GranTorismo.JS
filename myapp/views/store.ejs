@@ -26,7 +26,7 @@
           if (confirm("Debe autenticarse para agregar productos al carrito. \nDesea autenticarse?")){
             window.location.href = "http://localhost:3000/signUp";
           }
-        }
+        };
         <%}%>
 
         $scope.viewService = function(serviceId){
@@ -48,13 +48,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-                        <h1>Category with left sidebar</h1>
+                        <h1>Tienda</h1>
                     </div>
                     <div class="col-md-5">
                         <ul class="breadcrumb">
                             <li><a href="index.html">Home</a>
                             </li>
-                            <li>Category with left sidebar</li>
+                            <li>Tienda</li>
                         </ul>
 
                     </div>
@@ -96,91 +96,6 @@
                             </div>
                         </div>
 
-                        <div class="panel panel-default sidebar-menu">
-
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Brands</h3>
-                                <a class="btn btn-xs btn-danger pull-right" href="#"><i class="fa fa-times-circle"></i> <span class="hidden-sm">Clear</span></a>
-                            </div>
-
-                            <div class="panel-body">
-
-                                <form>
-                                    <div class="form-group">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox">Armani (10)
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox">Versace (12)
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox">Carlo Bruni (15)
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox">Jack Honey (14)
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <button class="btn btn-default btn-sm btn-template-main"><i class="fa fa-pencil"></i> Apply</button>
-
-                                </form>
-
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default sidebar-menu">
-
-                            <div class="panel-heading">
-                                <h3 class="panel-title clearfix">Colours</h3>
-                                <a class="btn btn-xs btn-danger pull-right" href="#"><i class="fa fa-times-circle"></i> <span class="hidden-sm">Clear</span></a>
-                            </div>
-
-                            <div class="panel-body">
-
-                                <form>
-                                    <div class="form-group">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> <span class="colour white"></span> White (14)
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> <span class="colour blue"></span> Blue (10)
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> <span class="colour green"></span> Green (20)
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> <span class="colour yellow"></span> Yellow (13)
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> <span class="colour red"></span> Red (10)
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <button class="btn btn-default btn-sm btn-template-main"><i class="fa fa-pencil"></i> Apply</button>
-
-                                </form>
-
-                            </div>
-                        </div>
-
                         <!-- *** MENUS AND FILTERS END *** -->
 
                     </div>
@@ -198,13 +113,13 @@
                             <div class="col-md-4 col-sm-6" ng-repeat="service in services">
                                 <div class="product">
                                     <div class="image">
-                                        <a href="">
+                                        <a href="/store/service/{{service.idService}}">
                                             <img src="images/product1.jpg" alt="" class="img-responsive image1">
                                         </a>
                                     </div>
                                     <!-- /.image -->
                                     <div class="text">
-                                        <h3><a href="shop-detail.html">{{service.nombre}}</a></h3>
+                                        <h3><a href="/store/service/{{service.idService}}">{{service.nombre}}</a></h3>
                                         <p class="price">${{service.precio}}</p>
                                         <div class="btn-group">
                                             <button ng-click="addToCart(service.idService)" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</button>

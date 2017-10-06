@@ -18,11 +18,11 @@ _________________________________________________________ -->
                 <% if (!user) { %>
                     <div class="login">
                         <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>
-                        <a href="signUp"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
+                        <a href="/signUp"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
                     </div>
                 <% }else{ %>
                     <div class="login">
-                        <a href="signOut"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign Out</span></a>
+                        <a href="/signOut"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign Out</span></a>
                     </div>
                 <% }%>
             </div>
@@ -65,14 +65,14 @@ _________________________________________________________ -->
                     </li>
                     <% }else if (role && role == 'Client') { %>
                     <li class=" use-yamm yamm-fw">
-                        <a href="social" class="toggle" >Social</a>
+                        <a href="/social" class="toggle" >Social</a>
                     </li>
                     <li class=" use-yamm yamm-fw">
-                        <a href="cart" class="toggle" >Carrito</a>
+                        <a href="/cart" class="toggle" >Carrito</a>
                     </li>
                     <% } %>
                     <li class=" use-yamm yamm-fw">
-                        <a href="store" class="toggle" >Tienda</a>
+                        <a href="/store" class="toggle" >Tienda</a>
                     </li>
                     <!-- ========== FULL WIDTH MEGAMENU ================== -->
                     <li class="dropdown use-yamm yamm-fw">

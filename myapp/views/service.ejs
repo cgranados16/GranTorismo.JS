@@ -5,11 +5,31 @@
 
   <head>
     <%- include('partials/head'); -%>
+    <script>
+
+    var app1 = angular.module('app1', []);
+    app1.controller("ctrl", function($scope, $http){
+      // Agrega un producto al carrito
+      $scope.addToCart = function(){
+        <%if (user){%>
+          $http.post("http://localhost:51336/api/Cart/" + <%=user.IdCard%> + "/" + <%=serviceData.idService%> + "/")
+          .then(function(response){
+            alert("El producto ha sido agregado al carrito!");
+          });
+        <%}else {%>
+          if (confirm("Debe autenticarse para agregar productos al carrito. \nDesea autenticarse?")){
+            window.location.href = "http://localhost:3000/signUp";
+          }
+        <%}%>
+      };
+    });
+
+    </script>
   </head>
 
 </head>
 
-<body>
+<body ng-app="app1", ng-controller="ctrl">
   <header>
     <%- include('partials/header'); -%>
   </header>
@@ -24,7 +44,7 @@
             <ul class="breadcrumb">
               <li><a href="index.html">Home</a>
               </li>
-              <li><a href="portfolio-2.html">Servicios</a>
+              <li><a href="/store">Tienda</a>
               </li>
               <li><%=serviceData.nombre%></li>
             </ul>
@@ -64,8 +84,9 @@
               <div class="project-more">
                 <h4>Descripción</h4>
                 <p><%=serviceData.descripcion%></p>
-                <h4>Preio</h4>
+                <h4>Precio</h4>
                 <p><b>$<%=serviceData.precio%></b></p>
+                <button ng-click="addToCart()" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</button>
               </div>
             </div>
 
@@ -88,11 +109,11 @@
                 </div>
                 <div class="bg"></div>
                 <div class="name">
-                  <h3><a href="portfolio-detail.html"><%=suggestion.nombre%></a></h3>
+                  <h3><a href="/store/service/<%=suggestion.idService%>"><%=suggestion.nombre%></a></h3>
                 </div>
                 <div class="text">
                   <p class="buttons">
-                    <a href="portfolio-detail.html" class="btn btn-template-transparent-primary">View</a>
+                    <a href="<%=suggestion.idService%>" class="btn btn-template-transparent-primary">View</a>
                   </p>
                 </div>
               </div>
