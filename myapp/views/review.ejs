@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head'); -%>
+    <link rel="stylesheet" href="/javascripts/star-rating/css/star-rating.min.css">
+</head>
+<body class="hold-transition skin-green sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <%- include('partials/header'); -%>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            
+        </aside>
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    Review
+                </h1>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-dashboard"></i><a href="/social/"> Index</a></li>
+                    <li>Profile</li>
+                    
+                </ol>
+            </section>
+
+            <section class="content container-fluid">             
+                    <!-- /.Foto -->    
+                    <div class="col-md-9">
+                      <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                          
+                      </ul>
+                      <div class="tab-content">
+                          <div class="active tab-pane" id="activity">
+                            <!-- Post -->
+                            <div class="post">
+                                <form action="javascript:;" method="post" id="reviewForm" enctype="multipart/form-data">
+                                            <dl class="dl-horizontal">
+                                                <dt>Your Rating:</dt>
+                                                <dd> 
+                                                    
+                                                    <input type="hidden" class="form-control" id="IdClient" required="required" name="IdClient" value= <%=user.IdCard; %>> 
+                                                    <input type="hidden" class="form-control" id="IdCheck" required="required" name="IdCheck" value="2"> 
+                                                    <input class="rating" class="form-control" id="Rating"  name = "Rating" data-min="0" data-max="5" data-step="1" data-size="md" value="2">
+                                                </dd>
+                                            </dl>
+                                        </p>                                        
+                                        <p>
+                                            <div class="box box-solid">                                                
+                                                <div class="box-body">
+                                                         <div class="form-group">
+                                                          <label for="comment">Your Comments:</label>
+                                                          <textarea class="form-control" id="Description" name = "Description" rows="5"  maxlength="255"></textarea>
+                                                        </div> 
+                                                </div>
+                                                <button type="submit" value="Submit" class="btn btn-success pull-right">Guardar</button>                                            
+                                            </div>
+                                        </p>
+                                    </form>
+                            </div>
+                        </div>
+                        <!-- /.tab-pane -->
+                    </div>
+                    <!-- /.tab-content -->
+                </div>
+                <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col 9 -->
+        </div>
+        <!-- /.row-->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Main Footer -->
+<footer class="main-footer">
+    <%- include('partials/footer'); -%>
+</footer>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="javascripts/jquery-1.11.0.min.js"><\/script>')
+    var IdCard = <%=user.IdCard; %> 
+    
+</script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/AdminLTE/js/adminlte.min.js"></script>
+<script src="/javascripts/social/review.js"></script>
+<script src="/javascripts/star-rating/js/star-rating.min.js"></script>
+
+</body>
+</html>
