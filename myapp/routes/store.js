@@ -31,6 +31,7 @@ function getService(idService){
   });
 }
 
+
 function IsLogged(req, res, next) {
   if (!req.cookies.user) {
     res.redirect('/signUp')
@@ -61,15 +62,21 @@ router.get('/history', IsLogged, function(req, res, next) {
 
 
 router.get('/service/:id', function(req, res, next) {
+  var idCard = 0;
+  if (req.cookies.user) {
+      idCard = JSON.parse(req.cookies.user)["IdCard"];
+    }
   getService(req.params.id)
   .then(function(serviceData){
     getSuggestions(req.params.id)
     .then(function(suggestions){
-      
-      res.render('service', {
-        title: 'Gran Torismo',
-        serviceData: serviceData,
-        suggestions: suggestions
+      fetch("http://localhost:51336/api/Like/Get/" + idCard + "/" + req.params.id).then(function(res) {return res.json();}).then(function(likeResult){
+          res.render('service', {
+            title: 'Gran Torismo',
+            serviceData: serviceData,
+            suggestions: suggestions,
+            liked: likeResult
+        });
       });
     });
   });

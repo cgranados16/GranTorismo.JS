@@ -88,15 +88,22 @@
 
             <div class="col-sm-4">
 
-              <div class="project-more">
-                <button type="button" id="likeButton" class="btn btn btn-danger"onclick="Like()"><i class="fa fa-heart"></i>Me gusta</button>
-                <button type="button" id="dislikeButton" class="btn btn-template-main " onclick="Dislike()"><i class="fa fa-heart-o"></i>No me gusta</button>
+            <div class="project-more">
+                <% if (user) { %>
+                    <%
+                    likeH = (liked[0] > 0) ? "display: none;" : ""; 
+                    dislikeH = (liked[0] > 0) ? "" : "display: none;"; 
+                    %> 
+                      <button type="button" id="dislikeButton" class="btn btn-template-main" style="<%=dislikeH%>" onclick="Dislike(<%=user.IdCard%>, <%=serviceData.idService%>)"><i class="fa fa-heart-o"></i>No me gusta</button>
+                      <button type="button" id="likeButton" class="btn btn btn-danger" style="<%=likeH%>" onclick="Like(<%=user.IdCard%>, <%=serviceData.idService%>)"><i class="fa fa-heart"></i>Me gusta</button>
+                <% } %>
                 <h4>Descripción</h4>
                 <p><%=serviceData.descripcion%></p>
                 <h4>Precio</h4>
                 <p><b>$<%=serviceData.precio%></b></p>
                 <button ng-click="addToCart()" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</button>
               </div>
+            </div>
             </div>
 
           </section>
