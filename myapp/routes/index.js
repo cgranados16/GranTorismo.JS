@@ -65,4 +65,8 @@ router.get('/rating', function (req, res) {
    res.render('rating', { title: 'Express'});
 })
 
+router.get('/review', function (req, res) {
+   res.render('review', { title: 'Express'});
+})
+
 module.exports = router;
