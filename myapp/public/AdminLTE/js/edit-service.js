@@ -13,6 +13,15 @@ Array.prototype.remove = function() {
 var finalFiles = [];
 
 $(function () {
+    var selectCat = "#categoriesService";
+        $(selectCat).select2({
+            placeholder: 'Select a Type',
+            multiple: true,
+            width: '100%'
+        });
+        var selectedValues = $("#selectedValues").val().split(',');
+        $(selectCat).select2('val',selectedValues);
+
     var selectType = "#servicePackage";
     $(selectType).select2({
         placeholder: 'Select a Service',

@@ -9,85 +9,25 @@
        <%- include('partials/header'); -%>
     </header>
 
-    <!-- *** HOMEPAGE CAROUSEL ***
- _________________________________________________________ -->
+    <!-- *** HOMEPAGE CAROUSEL *** -->
 
-            <div class="home-carousel">
-
-                <div class="dark-mask"></div>
-
-                <div class="container">
-                    <div class="homepage owl-carousel">
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-sm-5 right">
-                                    <p>
-                                        <img src="images/logo.png" alt="">
-                                    </p>
-                                   <h1>Costa Rica</h1>
-                                    <p>Repoio. Omae. wa.
-                                        <br />mou. Shindeiru. NANI.</p>
-                                </div>
-                                <div class="col-sm-7">
-                                    <img class="img-responsive" src="images/template-homepage.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="row">
-
-                                <div class="col-sm-7 text-center">
-                                    <img class="img-responsive" src="images/template-mac.png" alt="">
-                                </div>
-
-                                <div class="col-sm-5">
-                                    <h2>46 HTML pages full of features</h2>
-                                    <ul class="list-style-none">
-                                        <li>Sliders and carousels</li>
-                                        <li>4 Header variations</li>
-                                        <li>Google maps, Forms, Megamenu, CSS3 Animations and much more</li>
-                                        <li>+ 11 extra pages showing template features</li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-sm-5 right">
-                                    <h1>Design</h1>
-                                    <ul class="list-style-none">
-                                        <li>Clean and elegant design</li>
-                                        <li>Full width and boxed mode</li>
-                                        <li>Easily readable Roboto font and awesome icons</li>
-                                        <li>7 preprepared colour variations</li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-7">
-                                    <img class="img-responsive" src="images/template-easy-customize.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-sm-7">
-                                    <img class="img-responsive" src="images/template-easy-code.png" alt="">
-                                </div>
-                                <div class="col-sm-5">
-                                    <h1>Easy to customize</h1>
-                                    <ul class="list-style-none">
-                                        <li>7 preprepared colour variations.</li>
-                                        <li>Easily to change fonts</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.project owl-slider -->
-                </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="Mapau" style="width: 100%; height: 666px;"></div>
             </div>
 
-            <!-- *** HOMEPAGE CAROUSEL END *** -->
+            <% establecimientos.forEach(function(item)  {%>
+
+            <input type="hidden" class="info_local" value="<%= item.idEstablishment %>" data-lat="<%= item.latitud %>" data-lng="<%= item.longitud %>"/>
+            <div class="hidden" id="content_<%= item.idEstablishment %>">
+                    <h3><%= item.nombre %></h3>
+                    <p><%= item.descripcion %></p>
+            </div>
+            <% }); %>
+
+            </div>
+
+<!-- *** HOMEPAGE CAROUSEL END *** -->
 
     <footer>
         <%- include('partials/footer'); -%>
@@ -101,16 +41,17 @@
     </script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
+    <script src="javascripts/index.js"></script>
+    
+    <script src="/AdminLTE/js/jquery.geocomplete.js"></script>
+    <script src="/AdminLTE/js/jquery.geocomplete.min.js"></script>
+    <script src="https://maps.google.com/maps/api/js?libraries=places&key=AIzaSyACKCmiFSETqUlePLoEjdiDAv3huM58KJU"></script>
+
     <script src="javascripts/jquery.cookie.js"></script>
     <script src="javascripts/waypoints.min.js"></script>
     <script src="javascripts/jquery.counterup.min.js"></script>
     <script src="javascripts/jquery.parallax-1.1.3.js"></script>
     <script src="javascripts/front.js"></script>
     <script src="javascripts/js.cookie.js"></script>
-
-    <!-- owl carousel -->
-    <script src="javascripts/owl.carousel.min.js"></script>
-    <script src="javascripts/signUp/signUp.js"></script>
-
 </body>
 </html>
