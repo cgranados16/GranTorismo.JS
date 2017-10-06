@@ -58,25 +58,11 @@ router.get('/history', IsLogged, function(req, res, next) {
     title: 'Gran Torismo'
   });
 });
-function getImg(path, id){
-  fetch("http://localhost:51336/api/Show/Image/"+ path +"/" + id)
-  .then(function(res) {
-     console.log(path);
-     var dest = fs.createWriteStream('./public/tmp/'+path);
-     return res.body.pipe(dest);
-     console.log("caca")
-  });
-}
 
 
 router.get('/service/:id', function(req, res, next) {
-  //var suggestions = getSuggestions(req.params.id);
   getService(req.params.id)
   .then(function(serviceData){
-    
-    for (var i = 0; i < serviceData.fotos.length; i++) {
-      getImg(serviceData.fotos[i],req.params.id);
-    }
     getSuggestions(req.params.id)
     .then(function(suggestions){
       

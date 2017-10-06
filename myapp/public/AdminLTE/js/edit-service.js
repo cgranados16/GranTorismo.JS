@@ -28,7 +28,7 @@ $(function () {
         width: '100%'
     });
 
-    $(selectType).select2("val", null)
+    $(selectType).select2("val", null);
 
     var inputLocalFont = document.getElementById("uploadFiles");
     inputLocalFont.addEventListener("change", previewImages, false);

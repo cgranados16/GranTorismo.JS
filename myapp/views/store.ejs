@@ -114,7 +114,8 @@
                                 <div class="product">
                                     <div class="image">
                                         <a href="/store/service/{{service.idService}}">
-                                            <img src="images/product1.jpg" alt="" class="img-responsive image1">
+                                            <img ng-if="service.fotos[0]" src="http://localhost:51336/api/Show/Image/{{service.fotos[0]}}/{{service.idService}}" alt="" class="img-responsive image1">
+                                            <img ng-if="!service.fotos[0]" src="images/noimage.png" alt="" class="img-responsive image1">
                                         </a>
                                     </div>
                                     <!-- /.image -->
