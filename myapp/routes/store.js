@@ -64,6 +64,7 @@ router.get('/service/:id', function(req, res, next) {
   .then(function(serviceData){
     getSuggestions(req.params.id)
     .then(function(suggestions){
+      console.log(serviceData);
       res.render('service', {
         title: 'Gran Torismo',
         serviceData: serviceData,
@@ -76,3 +77,4 @@ router.get('/service/:id', function(req, res, next) {
 
 
 module.exports = router;
+;

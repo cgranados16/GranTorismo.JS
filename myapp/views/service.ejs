@@ -81,7 +81,10 @@
             </div>
 
             <div class="col-sm-4">
+
               <div class="project-more">
+                <button type="button" id="likeButton" class="btn btn btn-danger"onclick="Like()"><i class="fa fa-heart"></i>Me gusta</button>
+                <button type="button" id="dislikeButton" class="btn btn-template-main " onclick="Dislike()"><i class="fa fa-heart-o"></i>No me gusta</button>
                 <h4>Descripción</h4>
                 <p><%=serviceData.descripcion%></p>
                 <h4>Precio</h4>
@@ -152,6 +155,7 @@
   <!-- owl carousel -->
   <script src="/javascripts/owl.carousel.min.js"></script>
   <script src="/javascripts/signUp/signUp.js"></script>
+  <script src="/javascripts/store/service.js"></script>
 
 
 </body>
