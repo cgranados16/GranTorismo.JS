@@ -10,15 +10,14 @@ router.get('/', function(req, res, next) {
 
 router.get('/profile', function(req, res, next) {
 	if (req.query.id){
-		fetch('http://localhost:51336/api/User/Client/'+req.query.id)
-		    .then(function(res) {
-	    		return res.json();		        
-		    }).then(function(json) {
-		    	var name = json.FirstName +' '+ json.LastName;
-		        return res.render('social/profile', { title: name, profile : json});
-		    }).catch(function() {
+		fetch('http://localhost:51336/api/User/Client/'+req.query.id).then(function(res) {return res.json();}).then(function(json) {
+			fetch('http://localhost:51336/api/Reviews/Get/'+req.query.id).then(function(res) {return res.json();}).then(function(reviewsJson) {
+				var name = json.FirstName +' '+ json.LastName;
+			       return res.render('social/profile', { title: name, profile : json, reviews: reviewsJson});
+			});	      
+		}).catch(function() {
       			 next();
-   			 });
+   		});
 	}else{
 		return res.redirect('/social');
 	}
