@@ -44,13 +44,6 @@ function IsLogged(req,res,next){
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-
-  if (req.cookies.user){
-    var cookie = JSON.parse(req.cookies.user) || '';
-    if (cookie['Role'] == 'Admin'){
-      return res.render('index', { title: 'Express'});
-    }
-  }
   fetch('http://localhost:51336/api/Establecimiento/get').then(function(res) {return res.json();}).then(function(establecimientosJson) {
     return res.render('index', { title: 'Express', establecimientos: establecimientosJson});
   })
