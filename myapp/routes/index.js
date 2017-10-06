@@ -51,7 +51,9 @@ router.get('/', function(req, res, next) {
       return res.render('index', { title: 'Express'});
     }
   }
-  return res.render('index', { title: 'Express'});
+  fetch('http://localhost:51336/api/Establecimiento/get').then(function(res) {return res.json();}).then(function(establecimientosJson) {
+    return res.render('index', { title: 'Express', establecimientos: establecimientosJson});
+  })
 });
 
 router.get('/signOut', function (req, res) {

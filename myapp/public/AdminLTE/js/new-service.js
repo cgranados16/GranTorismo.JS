@@ -2,6 +2,13 @@ var finalFiles = [];
 
 $(function () {
 
+    var selectCat = "#categoriesService";
+        $(selectCat).select2({
+            placeholder: 'Select a Type',
+            multiple: true,
+            width: '100%'
+        });
+
     var selectType = "#servicePackage";
     $(selectType).select2({
         placeholder: 'Select a Service',

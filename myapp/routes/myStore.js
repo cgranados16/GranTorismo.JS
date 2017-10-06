@@ -49,8 +49,10 @@ router.get('/:id/services/', function(req, res) {
 });
 
 router.get('/:id/new/service/', function(req, res) {
-fetch('http://localhost:51336/api/get/Servicios/').then(function(res) {return res.json();}).then(function(json) {
-		res.render('myStore/new-service', { title: 'Mi Tienda', servicios: json, idEstablecimiento: req.params.id});
+	fetch('http://localhost:51336/api/get/Servicios/').then(function(res) {return res.json();}).then(function(json) {
+		fetch('http://localhost:51336/api/Shop/Categories/').then(function(res) {return res.json();}).then(function(categoriasJson) {
+			res.render('myStore/new-service', { title: 'Mi Tienda', servicios: json, idEstablecimiento: req.params.id, categories: categoriasJson});
+		});
 	});
 });
 
@@ -59,8 +61,12 @@ router.get('/:id/edit/service/:idService', function(req, res) {
 	fetch('http://localhost:51336/api/get/Service/'+ req.params.idService).then(function(res) {return res.json();}).then(function(json) {
 		fetch('http://localhost:51336/api/get/Package/'+ req.params.idService).then(function(res) {return res.json();}).then(function(packageJson) {
 			fetch('http://localhost:51336/api/get/Servicios/').then(function(res) {return res.json();}).then(function(serviciosJson) {
-		 		res.render('myStore/edit-service', { title: 'Mi Tienda', servicios: serviciosJson,servicio: json, idEstablecimiento: req.params.id, packageSer: packageJson});
-			}); 		
+				fetch('http://localhost:51336/api/Shop/Categories/').then(function(res) {return res.json();}).then(function(categoriasJson) {
+					fetch('http://localhost:51336/api/get/Categorie/'+ req.params.idService).then(function(res) {return res.json();}).then(function(selectedCate) {
+			 			res.render('myStore/edit-service', { title: 'Mi Tienda', servicios: serviciosJson,servicio: json, idEstablecimiento: req.params.id, packageSer: packageJson, categories: categoriasJson, selectedCat: selectedCate});
+			 		}); 
+			 	}); 
+			}); 
 		});
 	});
 });
