@@ -89,7 +89,7 @@
             <div class="col-sm-4">
 
             <div class="project-more">
-                <% if (user) { %>
+                <% if (role && role == 'Client') { %>
                     <%
                     likeH = (liked[0] > 0) ? "display: none;" : ""; 
                     dislikeH = (liked[0] > 0) ? "" : "display: none;"; 
