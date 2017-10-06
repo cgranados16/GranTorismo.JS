@@ -31,10 +31,5 @@ $(function () {
                 infowindow.open(map, marker);
             }
         })(marker, i));
-
-        var listener = google.maps.event.addListener(map, "idle", function () {
-        map.setZoom(10);
-        google.maps.event.removeListener(listener);
-    });
     }
 });

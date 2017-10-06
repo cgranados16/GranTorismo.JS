@@ -112,7 +112,7 @@
 
                             <div class="col-md-4 col-sm-6" ng-repeat="service in services">
                                 <div class="product">
-                                    <div class="image">
+                                    <div class="image" style="height: 200px !important;">
                                         <a href="/store/service/{{service.idService}}">
                                             <img ng-if="service.fotos[0]" src="http://localhost:51336/api/Show/Image/{{service.fotos[0]}}/{{service.idService}}" alt="" class="img-responsive image1">
                                             <img ng-if="!service.fotos[0]" src="images/noimage.png" alt="" class="img-responsive image1">

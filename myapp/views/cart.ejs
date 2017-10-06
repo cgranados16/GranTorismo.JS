@@ -70,7 +70,10 @@
                 <!--Product 1-->
 
                   <tr ng-repeat="item in items">
-                    <td style="width: 10%;"> <img class="img-thumbnail image1" src="images/product1.jpg" alt="" /> </td>
+                    <td style="width: 10%;"> 
+                        <img ng-if="item.fotos[0]" src="http://localhost:51336/api/Show/Image/{{item.fotos[0]}}/{{item.idService}}" alt="" class="img-thumbnail image1">
+                        <img ng-if="!item.fotos[0]" src="images/noimage.png" alt="" class="img-thumbnail image1">
+                    </td>
                     <td>
                       <h4> {{item.nombre}} </h4>
                       <p>
